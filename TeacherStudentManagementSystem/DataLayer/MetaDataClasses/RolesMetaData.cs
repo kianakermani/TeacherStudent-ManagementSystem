@@ -11,10 +11,10 @@ namespace DataLayer
     {
         [Key]
         public int RoleID { get; set; }
-        [Display(Name ="عنوان نقش")]
+        [Display(Name = "RoleTitle")]
         [Required(ErrorMessage ="Please fill {0}")]
         public string RoleTitle { get; set; }
-        [Display(Name = "عنوان سیستمی نقش")]
+        [Display(Name = "RoleName (System Name)")]
         [Required(ErrorMessage = "Please fill {0}")]
         public string RoleName { get; set; }
     }
