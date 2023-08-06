@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32929.386
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeacherStudentManagementSystem", "TeacherStudentManagementSystem\TeacherStudentManagementSystem.csproj", "{DC38E3B5-4919-472B-BDF4-92F0675313B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{59ED23EC-ABFF-4C91-A112-F5C2B295B467}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DC38E3B5-4919-472B-BDF4-92F0675313B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC38E3B5-4919-472B-BDF4-92F0675313B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC38E3B5-4919-472B-BDF4-92F0675313B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC38E3B5-4919-472B-BDF4-92F0675313B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59ED23EC-ABFF-4C91-A112-F5C2B295B467}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59ED23EC-ABFF-4C91-A112-F5C2B295B467}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59ED23EC-ABFF-4C91-A112-F5C2B295B467}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59ED23EC-ABFF-4C91-A112-F5C2B295B467}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E98A5B66-483F-4B04-B60C-A8B974D72D75}
+	EndGlobalSection
+EndGlobal

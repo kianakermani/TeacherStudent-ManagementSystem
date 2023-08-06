@@ -1,0 +1,12 @@
+D:\Project\TeacherStudent-ManagementSystem\TeacherStudentManagementSystem\DataLayer\bin\Debug\DataLayer.dll
+D:\Project\TeacherStudent-ManagementSystem\TeacherStudentManagementSystem\DataLayer\bin\Debug\DataLayer.pdb
+D:\Project\TeacherStudent-ManagementSystem\TeacherStudentManagementSystem\DataLayer\obj\Debug\DataLayer.csproj.CoreCompileInputs.cache
+D:\Project\TeacherStudent-ManagementSystem\TeacherStudentManagementSystem\DataLayer\obj\Debug\DataLayer.dll
+D:\Project\TeacherStudent-ManagementSystem\TeacherStudentManagementSystem\DataLayer\obj\Debug\DataLayer.pdb
+D:\Project\TeacherStudent-ManagementSystem\TeacherStudentManagementSystem\DataLayer\bin\Debug\DataLayer.dll.config
+D:\Project\TeacherStudent-ManagementSystem\TeacherStudentManagementSystem\DataLayer\bin\Debug\EntityFramework.dll
+D:\Project\TeacherStudent-ManagementSystem\TeacherStudentManagementSystem\DataLayer\bin\Debug\EntityFramework.SqlServer.dll
+D:\Project\TeacherStudent-ManagementSystem\TeacherStudentManagementSystem\DataLayer\bin\Debug\EntityFramework.xml
+D:\Project\TeacherStudent-ManagementSystem\TeacherStudentManagementSystem\DataLayer\bin\Debug\EntityFramework.SqlServer.xml
+D:\Project\TeacherStudent-ManagementSystem\TeacherStudentManagementSystem\DataLayer\obj\Debug\DataLayer.csproj.CopyComplete
+D:\Project\TeacherStudent-ManagementSystem\TeacherStudentManagementSystem\DataLayer\obj\Debug\DataLayer.csproj.AssemblyReference.cache
