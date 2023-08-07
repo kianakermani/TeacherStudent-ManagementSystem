@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teacher-Student Management System</title>
-    <link rel="icon" type="image/png" href="Content/images/icons/favicon.ico" />
+    <link rel="icon" type="image/png" href="/Content/images/icons/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="/Content/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/Content/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
     <link rel="stylesheet" type="text/css" href="/Content/css/util.css">
@@ -51,12 +51,18 @@
 
                     <div class="flex-sb-m w-full p-b-30">
                         <div class="contact100-form-checkbox">
-                            <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+                            <span class="label-checkbox100">Remember me</span>
+
+                            @Html.EditorFor(model => model.RememberMe, new
+                            {
+                                htmlAttributes = new { @class = "input-checkbox100", @id = "ckb1", @type = "checkbox", @name = "remember-me" }
+                            })
+                            @*<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
 
 
-                            <label class="label-checkbox100" for="ckb1">
-                                Remember me
-                            </label>
+                                <label class="label-checkbox100" for="ckb1">
+                                    Remember me
+                                </label>*@
                         </div>
 
                         <div>
