@@ -1,12 +1,10 @@
-﻿@model DataLayer.ViewModels.loginViewModel
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teacher-Student Management System</title>
-
     <link rel="icon" type="image/png" href="Content/images/icons/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="/Content/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/Content/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
@@ -14,9 +12,7 @@
     <link rel="stylesheet" type="text/css" href="/Content/css/main.css">
 
 </head>
-
 <body>
-    @Html.AntiForgeryToken()
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100">
@@ -28,21 +24,17 @@
                         <span style="color: black;">- please Log in -</span>
                     </span>
                 </div>
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
                 <form class="login100-form validate-form">
-
                     <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
-                        <span class="label-input100">@Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-2" })</span>
+                        <span class="label-input100">Username</span>
                         <input class="input100" type="text" name="username" placeholder="Enter username">
-                        @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
                         <span class="focus-input100"></span>
-
                     </div>
 
                     <div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
-                        <span class="label-input100">@Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })</span>
+                        <span class="label-input100">Password</span>
                         <input class="input100" type="password" name="pass" placeholder="Enter password">
-                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
                         <span class="focus-input100"></span>
                     </div>
 
@@ -50,7 +42,7 @@
                         <div class="contact100-form-checkbox">
                             <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
                             <label class="label-checkbox100" for="ckb1">
-                                @Html.LabelFor(model => model.RememberMe, htmlAttributes: new { @class = "control-label col-md-2" })
+                                Remember me
                             </label>
                         </div>
 
