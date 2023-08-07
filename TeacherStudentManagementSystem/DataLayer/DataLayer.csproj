@@ -79,6 +79,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TSMSModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\AccountViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="TSMSModel.edmx">
