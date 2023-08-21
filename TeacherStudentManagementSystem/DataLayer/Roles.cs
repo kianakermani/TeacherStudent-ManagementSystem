@@ -11,29 +11,19 @@ namespace DataLayer
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
-    
     
     public partial class Roles
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Roles()
         {
-            this.Admin = new HashSet<Admin>();
-            this.Students = new HashSet<Students>();
-            this.Teachers = new HashSet<Teachers>();
+            this.Users = new HashSet<Users>();
         }
     
         public int RoleID { get; set; }
-        public string RoleTitle { get; set; }
         public string RoleName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Admin> Admin { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Students> Students { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Teachers> Teachers { get; set; }
+        public virtual ICollection<Users> Users { get; set; }
     }
 }

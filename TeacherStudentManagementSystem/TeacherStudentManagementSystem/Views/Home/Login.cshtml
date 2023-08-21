@@ -1,61 +1,178 @@
 ﻿@model DataLayer.ViewModels.LoginViewModel
 
 @{
-    ViewBag.Title = "Login";
+    Layout = null;
 }
 
-<h2>Login</h2>
+<!DOCTYPE html>
+<html lang="en">
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher-Student Management System</title>
+    <link rel="icon" type="image/png" href="/Content/images/icons/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/Content/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/Content/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <link rel="stylesheet" type="text/css" href="/Content/css/util.css">
+    <link rel="stylesheet" type="text/css" href="/Content/css/main.css">
 
-    <div class="form-horizontal">
-        <h4>LoginViewModel</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
-            </div>
-        </div>
+</head>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.RememberMe, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.RememberMe)
-                    @Html.ValidationMessageFor(model => model.RememberMe, "", new { @class = "text-danger" })
+<body>
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <div class="login100-form-title">
+                    <span class="login100-form-title-1">
+                        Welcome to Teacher-Student Management System
+                        <br>
+                        <br>
+                        <span style="color: black;">- please Log in -</span>
+                    </span>
                 </div>
-            </div>
-        </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                @using (Html.BeginForm(new { @class = "login100-form validate-form" }))
+                {
+                    <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+                        @*<span class="label-input100">Username</span>*@
+                        @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "label-input100" })
+                        @*<input class="input100" type="text" name="username" placeholder="Enter username">*@
+                        @Html.EditorFor(model => model.UserName, new
+                        {
+                        htmlAttributes = new
+                            {
+                                @class = "input100",
+                                @type = "text",
+                                @name = "username",
+                                @placeholder =
+                        "Enter username"
+                            }
+
+                        })
+                        <span class="focus-input100"></span>
+                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    <div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
+                        @*<span class="label-input100">Password</span>*@
+                        @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "label-input100" })
+                        @*<input class="input100" type="password" name="pass" placeholder="Enter password">*@
+                        @Html.EditorFor(model => model.Password, new
+                        {
+                            htmlAttributes = new
+                            {
+                                @class = "input100",
+                                @type =
+                        "password",
+                                @name = "pass",
+                                @placeholder = "Enter password"
+                            }
+                        })
+                        <span class="focus-input100"></span>
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </div>
+
+
+
+                    <div class="flex-sb-m w-full p-b-30">
+                        <div class="contact100-form-checkbox">
+                            @*<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">*@
+                            @Html.EditorFor(model => model.RememberMe, new
+                            {
+                                htmlAttributes = new
+                                {
+                                    @class =
+                            "input-checkbox100",
+                                    @id = "ckb1"
+                                }
+                            })
+                            @Html.LabelFor(model => model.RememberMe, htmlAttributes: new
+                            {
+                                @class = "label-checkbox100",
+                            @for = "ckb1"
+                            })
+                            @*<label class="label-checkbox100" for="ckb1">
+                                    Remember me
+                                </label>*@
+                        </div>
+
+                        <div>
+                            <a href="#" class="txt1">
+                                Forgot Password?
+                            </a>
+                        </div>
+                    </div>
+
+
+                    <div class="container-login100-form-btn">
+                        <button class="login100-form-btn">
+                            Login
+                        </button>
+                    </div>
+                }
             </div>
         </div>
     </div>
-    <script >
-    
-                  
+
+</body>
+
+</html>
 
 
-    </script>
+@*<!DOCTYPE html>
 
-}
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Login</title>
+    </head>
+    <body>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
 
+            <div class="form-horizontal">
+                <h4>LoginViewModel</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
 
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
 
+                <div class="form-group">
+                    @Html.LabelFor(model => model.RememberMe, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.RememberMe)
+                            @Html.ValidationMessageFor(model => model.RememberMe, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
 
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        }
 
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    </body>
+    </html>*@

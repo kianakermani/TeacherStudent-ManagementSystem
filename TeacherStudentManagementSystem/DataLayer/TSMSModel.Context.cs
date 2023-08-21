@@ -26,8 +26,6 @@ namespace DataLayer
         }
     
         public virtual DbSet<Roles> Roles { get; set; }
-        public virtual DbSet<Students> Students { get; set; }
-        public virtual DbSet<Teachers> Teachers { get; set; }
-        public virtual DbSet<Admin> Admin { get; set; }
+        public virtual DbSet<Users> Users { get; set; }
     }
 }

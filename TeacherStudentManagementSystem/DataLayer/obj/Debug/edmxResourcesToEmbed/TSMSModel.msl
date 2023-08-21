@@ -5,49 +5,17 @@
       <EntityTypeMapping TypeName="TeacherStudentDBModel.Roles">
         <MappingFragment StoreEntitySet="Roles">
           <ScalarProperty Name="RoleID" ColumnName="RoleID" />
-          <ScalarProperty Name="RoleTitle" ColumnName="RoleTitle" />
           <ScalarProperty Name="RoleName" ColumnName="RoleName" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Students">
-      <EntityTypeMapping TypeName="TeacherStudentDBModel.Students">
-        <MappingFragment StoreEntitySet="Students">
-          <ScalarProperty Name="ActiveCode" ColumnName="ActiveCode" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="UserName" ColumnName="UserName" />
-          <ScalarProperty Name="Address" ColumnName="Address" />
-          <ScalarProperty Name="Phone" ColumnName="Phone" />
-          <ScalarProperty Name="Reshte" ColumnName="Reshte" />
-          <ScalarProperty Name="CodeMeli" ColumnName="CodeMeli" />
-          <ScalarProperty Name="Fname" ColumnName="Fname" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="TeacherStudentDBModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
           <ScalarProperty Name="RoleID" ColumnName="RoleID" />
-          <ScalarProperty Name="SID" ColumnName="SID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Teachers">
-      <EntityTypeMapping TypeName="TeacherStudentDBModel.Teachers">
-        <MappingFragment StoreEntitySet="Teachers">
-          <ScalarProperty Name="ActiveCode" ColumnName="ActiveCode" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="UserName" ColumnName="UserName" />
-          <ScalarProperty Name="Phone" ColumnName="Phone" />
-          <ScalarProperty Name="CodeMeli" ColumnName="CodeMeli" />
-          <ScalarProperty Name="FName" ColumnName="FName" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
-          <ScalarProperty Name="TID" ColumnName="TID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Admin">
-      <EntityTypeMapping TypeName="TeacherStudentDBModel.Admin">
-        <MappingFragment StoreEntitySet="Admin">
           <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="UserName" ColumnName="UserName" />
-          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

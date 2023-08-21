@@ -1,3 +1,5 @@
 
 Database/TeacherStudentDB.mdf
 Database/TeacherStudentDB_log.ldf
+Database/SMS.mdf
+Database/SMS_log.ldf

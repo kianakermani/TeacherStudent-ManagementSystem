@@ -9,30 +9,59 @@ using System.Web.Security;
 
 namespace TeacherStudentManagementSystem.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         TeacherStudentDBEntities db = new TeacherStudentDBEntities();
-
-        public ActionResult HomePage()
-        {
-            return View();
-        }
-
 
         public ActionResult Login()
         {
             return View();
         }
+        [Authorize(Roles = "Teacher")]
+        public ActionResult TeacherPanel()
+        {
+            return View();
+        }
+        [Authorize(Roles = "Student")]
+        public ActionResult StudentPanel()
+        {
+            return View();
+        }
+        [Authorize(Roles = "Admin")]
+        public ActionResult AdminPanel()
+        {
+            return View();
+        }
+
 
         [HttpPost]
         public ActionResult Login(LoginViewModel login)
         {
-            var Teacher = db.Teachers.SingleOrDefault(t => t.UserName == login.UserName && t.Password == login.Password);
-            if (Teacher != null)
+            var User = db.Users.SingleOrDefault(t => t.UserName == login.UserName && t.Password == login.Password);
+            if (User != null)
             {
-
-                FormsAuthentication.SetAuthCookie(Teacher.UserName, login.RememberMe);
-                return RedirectToAction("Homepage");
+                if (User.RoleID == 1)
+                {
+                    Session["Role"] = "Admin";
+                    Session["ID"] = User.RoleID;
+                    FormsAuthentication.SetAuthCookie(User.UserName, login.RememberMe);
+                    return RedirectToAction("AdminPanel", "Home");
+                }
+                else if (User.RoleID == 2)
+                {
+                    Session["Role"] = "Teacher";
+                    Session["ID"] = User.RoleID;
+                    FormsAuthentication.SetAuthCookie(User.UserName, login.RememberMe);
+                    return RedirectToAction("TeacherPanel", "Home");
+                }
+                else if (User.RoleID == 3)
+                {
+                    Session["Role"] = "Student";
+                    Session["ID"] = User.RoleID;
+                    FormsAuthentication.SetAuthCookie(User.UserName, login.RememberMe);
+                    return RedirectToAction("StudentPanel", "Home");
+                }
 
             }
             else
@@ -40,8 +69,9 @@ namespace TeacherStudentManagementSystem.Controllers
                 ModelState.AddModelError("UserName", "UserName not found !");
                 ModelState.AddModelError("Password", "Password is incorrect !");
 
-                return View();
+
             }
+            return View(login);
 
         }
     }
