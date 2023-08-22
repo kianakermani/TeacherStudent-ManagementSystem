@@ -32,7 +32,8 @@
                     </span>
                 </div>
 
-                @using (Html.BeginForm(new { @class = "login100-form validate-form" }))
+                @*@using (Html.BeginForm(new { @class = "login100-form validate-form" }))*@
+                @using (Html.BeginForm("Login", "Home", FormMethod.Post, new { @class = "login100-form validate-form" }))
                 {
                     <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
                         @*<span class="label-input100">Username</span>*@
@@ -78,24 +79,10 @@
 
                     <div class="flex-sb-m w-full p-b-30">
                         <div class="contact100-form-checkbox">
-                            @*<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">*@
-                            @Html.EditorFor(model => model.RememberMe, new
-                            {
-                                htmlAttributes = new
-                                {
-                                    @class =
-                            "input-checkbox100",
-                                    @id = "ckb1"
-                                }
-                            })
-                            @Html.LabelFor(model => model.RememberMe, htmlAttributes: new
-                            {
-                                @class = "label-checkbox100",
-                            @for = "ckb1"
-                            })
-                            @*<label class="label-checkbox100" for="ckb1">
-                                    Remember me
-                                </label>*@
+                            <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+                            <label class="label-checkbox100" for="ckb1">
+                        Remember me
+                    </label>
                         </div>
 
                         <div>
