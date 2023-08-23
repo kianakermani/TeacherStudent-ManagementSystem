@@ -51,7 +51,7 @@ a:focus {
 
 a:hover {
   text-decoration: none;
-  color: #57b846;
+  color: #467db8;
 }
 
 /*---------------------------------------------*/
@@ -231,12 +231,11 @@ iframe {
   flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
-  background: rgb(100, 170, 4);
+  background: rgb(4, 95, 170);
   background: linear-gradient(
-    90deg,
-    rgba(100, 170, 4, 1) 0%,
-    rgba(4, 170, 109, 1) 0%,
-    rgba(0, 255, 50, 1) 100%
+    89.8deg,
+    rgb(39, 115, 255) 4.3%,
+    rgb(62, 211, 232) 101.4%
   );
 
   background-repeat: no-repeat;
@@ -341,7 +340,7 @@ iframe {
   -moz-transition: all 0.6s;
   transition: all 0.6s;
 
-  background: #57b846;
+  background: #4664b8;
 }
 
 /*---------------------------------------------*/
@@ -405,7 +404,7 @@ input.input100 {
 }
 
 .input-checkbox100:checked + .label-checkbox100::before {
-  color: #57b846;
+  color: #465bb8;
 }
 
 /*------------------------------------------------------------------
@@ -431,7 +430,7 @@ input.input100 {
   padding: 0 20px;
   min-width: 160px;
   height: 50px;
-  background-color: #118b5e;
+  background-color: #1a6c9f;
   border-radius: 25px;
 
   font-family: Poppins-Regular;
