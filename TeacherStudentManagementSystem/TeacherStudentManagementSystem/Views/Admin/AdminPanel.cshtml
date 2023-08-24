@@ -1,4 +1,9 @@
-﻿
+﻿@model DataLayer.ViewModels.AdminViewModel
+
+@{
+    Layout = null;
+}
+
 @{
     Layout = null;
 }
@@ -232,13 +237,14 @@
                                         <div class="header-right-info">
                                             <ul class="nav navbar-nav mai-top-nav header-right-menu">
                                                 <li class="nav-item">
-                                                    <a href="#" data-toggle="dropdown" role="button" aria-expanded="false"
-                                                       class="nav-link dropdown-toggle">
+                                                    <a href="#" data-toggle="dropdown" role="button"
+                                                       aria-expanded="false" class="nav-link dropdown-toggle">
                                                         <img src="/content/Admin/img/product/dll.jpeg" alt="" />
                                                         <span class="admin-name">Super Admin</span>
                                                         <i class="fa fa-angle-down edu-icon edu-down-arrow"></i>
                                                     </a>
-                                                    <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
+                                                    <ul role="menu"
+                                                        class="dropdown-header-top author-log dropdown-menu animated zoomIn">
                                                         <li>
                                                             @Html.ActionLink("Log Out", "Login", "Home")
                                                         </li>
@@ -279,27 +285,27 @@
                         <tr>
                             <td>Name</td>
                             <td>:</td>
-                            <td>Super Admin</td>
+                            <td>@Html.DisplayFor(model => model.Name)</td>
                         </tr>
                         <tr>
                             <td>AdminID</td>
                             <td>:</td>
-                            <td>10000</td>
+                            <td>@Html.DisplayNameFor(model => model.AdminID)</td>
                         </tr>
                         <tr>
                             <td>Email</td>
                             <td>:</td>
-                            <td>Admin@gmail.com</td>
+                            <td>@Html.DisplayNameFor(model => model.Email)</td>
                         </tr>
                         <tr>
                             <td>Phone</td>
                             <td>:</td>
-                            <td>+980001111110</td>
+                            <td>@Html.DisplayNameFor(model => model.Phone)</td>
                         </tr>
                         <tr>
                             <td>Address</td>
                             <td>:</td>
-                            <td>Tehran , Iran </td>
+                            <td>@Html.DisplayNameFor(model => model.Address) </td>
                         </tr>
 
 
@@ -373,4 +379,3 @@
 </body>
 
 </html>
-

@@ -46,7 +46,7 @@ namespace TeacherStudentManagementSystem.Controllers
                     Session["Role"] = "Admin";
                     Session["ID"] = User.RoleID;
                     FormsAuthentication.SetAuthCookie(User.UserName, login.RememberMe);
-                    return RedirectToAction("AdminPanel", "Home");
+                    return View("~/Views/Admin/AdminPanel.cshtml");
                 }
                 else if (User.RoleID == 2)
                 {
