@@ -11,7 +11,7 @@ namespace DataLayer
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class Admin
     {
         public int AdminID { get; set; }
@@ -20,7 +20,7 @@ namespace DataLayer
         public string Email { get; set; }
         public string Phone { get; set; }
         public string Address { get; set; }
-    
+
         public virtual Roles Roles { get; set; }
     }
 }
