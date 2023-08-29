@@ -88,3 +88,4 @@ D:\Project\TeacherStudent-ManagementSystem\TeacherStudentManagementSystem\DataLa
 D:\Project\TeacherStudent-ManagementSystem\TeacherStudentManagementSystem\DataLayer\bin\Debug\ru\Microsoft.Data.SqlClient.resources.dll
 D:\Project\TeacherStudent-ManagementSystem\TeacherStudentManagementSystem\DataLayer\bin\Debug\zh-Hans\Microsoft.Data.SqlClient.resources.dll
 D:\Project\TeacherStudent-ManagementSystem\TeacherStudentManagementSystem\DataLayer\bin\Debug\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+D:\Project\TeacherStudent-ManagementSystem\TeacherStudentManagementSystem\DataLayer\obj\Debug\DataLayer.csproj.AssemblyReference.cache

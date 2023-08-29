@@ -64,6 +64,13 @@ namespace TeacherStudentManagementSystem.Controllers
             return View(ad);
         }
 
+        public ActionResult AllProf()
+        {
+            return View()
+;        }
+
+        
+
 
         [HttpPost]
         public ActionResult Login(LoginViewModel login)
@@ -106,5 +113,7 @@ namespace TeacherStudentManagementSystem.Controllers
             return View(login);
 
         }
+
+
     }
 }

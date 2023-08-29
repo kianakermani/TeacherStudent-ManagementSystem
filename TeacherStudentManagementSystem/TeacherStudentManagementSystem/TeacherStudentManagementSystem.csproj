@@ -272,7 +272,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -614,6 +613,7 @@
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Shared\AdminLayout.cshtml" />
     <Content Include="Views\Home\AdminPanel.cshtml" />
+    <Content Include="Views\Home\AllProf.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -621,7 +621,6 @@
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Content\Admin\pdf\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
