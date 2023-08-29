@@ -50,6 +50,7 @@ namespace TeacherStudentManagementSystem.Controllers
                 while (sdr.Read())
                 {
                     var adminInfo = new AdminViewModel();
+                    adminInfo.AdminID = Convert.ToInt32(sdr["AdminID"]);
                     adminInfo.Name = sdr["Name"].ToString();
                     adminInfo.Email = sdr["Email"].ToString();
                     adminInfo.Address = sdr["Address"].ToString();
@@ -64,9 +65,35 @@ namespace TeacherStudentManagementSystem.Controllers
             return View(ad);
         }
 
-        public ActionResult AllProf()
+        public ActionResult AllProf(TeacherViewModel pr)
         {
-            return View()
+            string connetionString;
+            SqlConnection cnn;
+            connetionString = @"Data Source=kiana\sqlexpress;Initial Catalog=TeacherStudentDB;Integrated Security=True";
+            cnn = new SqlConnection(connetionString);
+            string s1 = "SELECT * FROM Teachers";
+            SqlCommand sqlcomm = new SqlCommand(s1);
+            cnn.Open();
+            sqlcomm.Connection = cnn;
+            SqlDataReader sdr = sqlcomm.ExecuteReader();
+            sqlcomm.Connection = cnn;
+            List<TeacherViewModel> teacherList = new List<TeacherViewModel>();
+            if (sdr.HasRows)
+            {
+                while (sdr.Read())
+                {
+                    var tacherInfo = new TeacherViewModel();
+                    tacherInfo.TeacherID = Convert.ToInt32(sdr["TID"]);
+                    tacherInfo.Name = sdr["Name"].ToString();
+                    tacherInfo.Family = sdr["FName"].ToString();
+                    tacherInfo.Email = sdr["Email"].ToString();
+                    teacherList.Add(tacherInfo);
+
+                }
+                pr.teacher = teacherList;
+                cnn.Close();
+            }
+            return View(pr)
 ;        }
 
         
