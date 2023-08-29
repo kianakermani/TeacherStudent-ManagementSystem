@@ -1,4 +1,4 @@
-﻿@model DataLayer.ViewModels.AdminViewModel
+﻿@model DataLayer.ViewModels.StudentViewModel
 
 @{
     Layout = null;
@@ -71,10 +71,6 @@
 </head>
 
 <body>
-    <!--[if lt IE 8]>
-          <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-      <![endif]-->
-    <!-- Start Left menu area -->
     <div class="left-sidebar-pro">
         <nav id="sidebar" class=" ">
             <div class="left-custom-menu-adp-wrap comment-scrollbar">
@@ -87,12 +83,7 @@
                             </a>
                             <ul class="submenu-angle" aria-expanded="true">
                                 <li>
-                                    <a title="Dashboard v.1" href="AdminPanel">
-                                        <span class="mini-sub-pro">
-                                            Admin Profile
-
-                                        </span>
-                                    </a>
+                                    @Html.ActionLink("Admin Profile", "AdminPanel", "Home", null, new { @class = "mini-sub-pro" })
                                 </li>
 
                             </ul>
@@ -104,7 +95,8 @@
                             </a>
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li>
-                                    @Html.ActionLink("All Professors", "AllProf", "Home", null, new { @class = "mini-sub-pro" })
+                                    
+                                     @Html.ActionLink("All Professors", "AllProf", "Home", null, new { @class = "mini-sub-pro" })
                                 </li>
                                 <li>
                                     <a title="Add Professor" href="add-professor.html">
@@ -130,8 +122,12 @@
                             </a>
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li>
-
-                                    @Html.ActionLink("All Students", "AllStu", "Home", null, new { @class = "mini-sub-pro" })
+                                    <a title="All Students" href="ALLstu">
+                                        <span class="mini-sub-pro">
+                                            All
+                                            Students
+                                        </span>
+                                    </a>
                                 </li>
                                 <li>
                                     <a title="Add Students" href="add-student.html">
@@ -221,14 +217,17 @@
                                                 <li class="nav-item">
                                                     <a href="#" data-toggle="dropdown" role="button"
                                                        aria-expanded="false" class="nav-link dropdown-toggle">
-                                                        <img src="/content/Admin/img/product/dll.jpeg" alt="" />
+                                                        <img src="img/product/dll.jpeg" alt="" />
                                                         <span class="admin-name">Super Admin</span>
                                                         <i class="fa fa-angle-down edu-icon edu-down-arrow"></i>
                                                     </a>
                                                     <ul role="menu"
                                                         class="dropdown-header-top author-log dropdown-menu animated zoomIn">
                                                         <li>
-                                                            @Html.ActionLink("Log Out", "Login", "Home")
+                                                            <a href="#">
+                                                                <span class="edu-icon edu-locked author-log-ic"></span>Log
+                                                                Out
+                                                            </a>
                                                         </li>
                                                     </ul>
                                                 </li>
@@ -242,74 +241,56 @@
                 </div>
             </div>
         </div>
-        <!-- Sidenav -->
-        <div class="profile">
-            <div class="profile">
-                <img src="/content/Admin/img/product/dll.jpeg" alt="" width="100" height="100">
-
-                <div class="name">
-                    Super Admin
+        <section class="ftco-section" style="margin-top: 100px;">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 text-center mb-5">
+                        <h2 class="heading-section">All Students</h2>
+                        <br>
+                    </div>
                 </div>
-
-            </div>
-
-        </div>
-    </div>
-
-    <!-- End -->
-    <div class="main">
-        <h2>IDENTITY</h2>
-        <div class="card">
-            <div class="card-body">
-                <i class="fa fa-pen fa-xs edit"></i>
-                @if (Model != null)
-                {
-                    if (Model.admin.Count > 0)
-                    {
-                        <table>
-                            @foreach (var item in Model.admin)
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-wrap">
+                            @if (Model != null)
                             {
-                                @*<tr>
-                                        <td>@Html.DisplayFor(m => item.Name)</td>
-                                        <td>@Html.DisplayFor(m => item.Email)</td>
-                                        <td>@Html.DisplayFor(m => item.Address)</td>
-                                        <td>@Html.DisplayFor(m => item.Phone)</td>
-                                    </tr>*@
+                                if (Model.student.Count > 0)
+                                {
+                                    <table class="table">
+                                        <thead class="thead-dark">
+                                            <tr>
 
-                                <tr>
-                                    <td>Name</td>
-                                    <td>:</td>
-                                    <td>@Html.DisplayFor(m => item.Name)</td>
-                                </tr>
-                                <tr>
-                                    <td>AdminID</td>
-                                    <td>:</td>
-                                    <td>@Html.DisplayFor(m => item.AdminID)</td>
-                                </tr>
-                                <tr>
-                                    <td>Email</td>
-                                    <td>:</td>
-                                    <td>@Html.DisplayFor(m => item.Email)</td>
-                                </tr>
-                                <tr>
-                                    <td>Phone</td>
-                                    <td>:</td>
-                                    <td>@Html.DisplayFor(m => item.Phone)</td>
-                                </tr>
-                                <tr>
-                                    <td>Address</td>
-                                    <td>:</td>
-                                    <td>@Html.DisplayFor(m => item.Address) </td>
-                                </tr>
+                                                <th>ID no.</th>
+                                                <th>First Name</th>
+                                                <th>Last Name</th>
+                                                <th>Email</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model.student)
+                                            {
+                                                <tr class="alert" role="alert">
+                                                    <th scope="row">@Html.DisplayFor(m => item.StudentID)</th>
+                                                    <td>@Html.DisplayFor(m => item.Name)</td>
+                                                    <td>@Html.DisplayFor(m => item.Family)</td>
+                                                    <td>@Html.DisplayFor(m => item.Email)</td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                }
                             }
 
-                        </table>
-
-                    }
-                }
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
+
     </div>
+
+
     <!-- End -->
     <!-- jquery
           ============================================ -->
@@ -375,46 +356,3 @@
 </body>
 
 </html>
-
-
-@*<!DOCTYPE html>
-
-    <html>
-
-    <head>
-        <meta name="viewport" content="width=device-width" />
-        <title>AdminPanel</title>
-    </head>
-
-    <body>
-        <div>
-            <h1>AdminPanel</h1>
-            @if (Model != null)
-            {
-                if (Model.admin.Count > 0)
-                {
-                    <table>
-                        <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Address</th>
-                            <th>Phone</th>
-
-                        </tr>
-                        @foreach (var item in Model.admin)
-                        {
-                            <tr>
-                                <td>@Html.DisplayFor(m => item.Name)</td>
-                                <td>@Html.DisplayFor(m => item.Email)</td>
-                                <td>@Html.DisplayFor(m => item.Address)</td>
-                                <td>@Html.DisplayFor(m => item.Phone)</td>
-                            </tr>
-                        }
-                    </table>
-
-                }
-            }
-        </div>
-    </body>
-
-    </html>*@

@@ -96,7 +96,39 @@ namespace TeacherStudentManagementSystem.Controllers
             return View(pr)
 ;        }
 
-        
+        public ActionResult AllStu(StudentViewModel st)
+        {
+            string connetionString;
+            SqlConnection cnn;
+            connetionString = @"Data Source=kiana\sqlexpress;Initial Catalog=TeacherStudentDB;Integrated Security=True";
+            cnn = new SqlConnection(connetionString);
+            string s1 = "SELECT * FROM Students";
+            SqlCommand sqlcomm = new SqlCommand(s1);
+            cnn.Open();
+            sqlcomm.Connection = cnn;
+            SqlDataReader sdr = sqlcomm.ExecuteReader();
+            sqlcomm.Connection = cnn;
+            List<StudentViewModel> studentList = new List<StudentViewModel>();
+            if (sdr.HasRows)
+            {
+                while (sdr.Read())
+                {
+                    var studentInfo = new StudentViewModel();
+                    studentInfo.StudentID = Convert.ToInt32(sdr["SID"]);
+                    studentInfo.Name = sdr["Name"].ToString();
+                    studentInfo.Family = sdr["FName"].ToString();
+                    studentInfo.Email = sdr["Email"].ToString();
+                    studentList.Add(studentInfo);
+
+                }
+                st.student = studentList;
+                cnn.Close();
+            }
+            return View(st)
+;
+        }
+
+
 
 
         [HttpPost]

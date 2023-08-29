@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace DataLayer.ViewModels
 {
-    public class TeacherViewModel
+    public class StudentViewModel
     {
-        [Display(Name = "TID")]
-        public int TeacherID { get; set; }
+        [Display(Name = "SID")]
+        public int StudentID { get; set; }
         [Display(Name = "Name")]
         public string Name { get; set; }
         [Display(Name = "FName")]
@@ -24,6 +24,6 @@ namespace DataLayer.ViewModels
         [Display(Name = "Address")]
         public string Address { get; set; }
 
-        public List<TeacherViewModel> teacher { get; set; }
+        public List<StudentViewModel> student { get; set; }
     }
 }
