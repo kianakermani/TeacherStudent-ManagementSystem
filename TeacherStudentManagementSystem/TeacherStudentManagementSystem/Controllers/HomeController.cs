@@ -128,6 +128,37 @@ namespace TeacherStudentManagementSystem.Controllers
 ;
         }
 
+        public ActionResult AllCou(CourseViewModel co)
+        {
+            string connetionString;
+            SqlConnection cnn;
+            connetionString = @"Data Source=kiana\sqlexpress;Initial Catalog=TeacherStudentDB;Integrated Security=True";
+            cnn = new SqlConnection(connetionString);
+            string s1 = "SELECT * FROM Courses";
+            SqlCommand sqlcomm = new SqlCommand(s1);
+            cnn.Open();
+            sqlcomm.Connection = cnn;
+            SqlDataReader sdr = sqlcomm.ExecuteReader();
+            sqlcomm.Connection = cnn;
+            List<CourseViewModel> courseList = new List<CourseViewModel>();
+            if (sdr.HasRows)
+            {
+                while (sdr.Read())
+                {
+                    var courseInfo = new CourseViewModel();
+                    courseInfo.Title = sdr["Title"].ToString();
+                    courseInfo.Teacher = sdr["Teacher"].ToString();
+                    courseInfo.Days = sdr["Days"].ToString();
+                    courseInfo.Time = sdr["Time"].ToString();
+                    courseList.Add(courseInfo);
+
+                }
+                co.course = courseList;
+                cnn.Close();
+            }
+            return View(co)
+;
+        }
 
 
 

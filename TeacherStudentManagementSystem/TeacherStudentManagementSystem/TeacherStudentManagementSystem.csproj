@@ -615,6 +615,7 @@
     <Content Include="Views\Home\AdminPanel.cshtml" />
     <Content Include="Views\Home\AllProf.cshtml" />
     <Content Include="Views\Home\AllStu.cshtml" />
+    <Content Include="Views\Home\AllCou.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
