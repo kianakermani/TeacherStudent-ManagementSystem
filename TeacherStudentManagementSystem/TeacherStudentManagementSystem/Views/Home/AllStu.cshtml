@@ -102,14 +102,6 @@
                                
                                     @Html.ActionLink("Add Professor", "AddProf", "Home", null, new { @class = "mini-sub-pro" })
                                 </li>
-                                <li>
-                                    <a title="Edit Professor" href="edit-professor.html">
-                                        <span class="mini-sub-pro">
-                                            Edit
-                                            Professor
-                                        </span>
-                                    </a>
-                                </li>
                             </ul>
                         </li>
                         <li>
@@ -133,14 +125,6 @@
                                         </span>
                                     </a>
                                 </li>
-                                <li>
-                                    <a title="Edit Students" href="edit-student.html">
-                                        <span class="mini-sub-pro">
-                                            Edit
-                                            Student
-                                        </span>
-                                    </a>
-                                </li>
                             </ul>
                         </li>
                         <li>
@@ -155,14 +139,6 @@
                                     <a title="Add Courses" href="add-course.html">
                                         <span class="mini-sub-pro">
                                             Add
-                                            Course
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a title="Edit Courses" href="edit-course.html">
-                                        <span class="mini-sub-pro">
-                                            Edit
                                             Course
                                         </span>
                                     </a>
@@ -215,10 +191,7 @@
                                                     <ul role="menu"
                                                         class="dropdown-header-top author-log dropdown-menu animated zoomIn">
                                                         <li>
-                                                            <a href="#">
-                                                                <span class="edu-icon edu-locked author-log-ic"></span>Log
-                                                                Out
-                                                            </a>
+                                                            @Html.ActionLink("Log Out", "Login", "Home")
                                                         </li>
                                                     </ul>
                                                 </li>
@@ -261,12 +234,16 @@
                                         <tbody>
                                             @foreach (var item in Model.student)
                                             {
-                                                <tr class="alert" role="alert">
-                                                    <th scope="row">@Html.DisplayFor(m => item.StudentID)</th>
-                                                    <td>@Html.DisplayFor(m => item.Name)</td>
-                                                    <td>@Html.DisplayFor(m => item.Family)</td>
-                                                    <td>@Html.DisplayFor(m => item.Email)</td>
-                                                </tr>
+                                            <tr class="alert" role="alert">
+                                                <th scope="row">@Html.DisplayFor(m => item.StudentID)</th>
+                                                <td>@Html.DisplayFor(m => item.Name)</td>
+                                                <td>@Html.DisplayFor(m => item.Family)</td>
+                                                <td>@Html.DisplayFor(m => item.Email)</td>
+                                                <td colspan="2">
+                                                    <a href="#" data-toggle="modal" data-target="#EditRecord" class="edit">Edit</a> 
+                                                    <a href="#" data-toggle="modal" data-target="#DeleteRecord" class="delete">Delete</a>
+                                                </td>
+                                            </tr>
                                             }
                                         </tbody>
                                     </table>

@@ -176,13 +176,6 @@ namespace TeacherStudentManagementSystem.Controllers
             {
                 try
                 {
-                    //teacher.Name = Convert.ToString(Session["Name"]);
-                    //teacher.FName=Convert.ToString(Session["FName"]);
-                    //teacher.CodeMeli=Convert.ToString(Session["CodeMeli"]);
-                    //teacher.Phone=Convert.ToString(Session["Phone"]);
-                    //teacher.Email=Convert.ToString(Session["Email"]);
-                    //teacher.Address=Convert.ToString(Session["Address"]);
-
                     Teachers te = new Teachers();
                     te.Name = teacher.Name;
                     te.FName = teacher.FName;
