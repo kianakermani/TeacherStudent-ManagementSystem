@@ -11,18 +11,19 @@ namespace DataLayer
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Teachers
     {
         public int TID { get; set; }
-        public int RoleID { get; set; }
+        [Required(ErrorMessage = "Please Enter Name !")]
         public string Name { get; set; }
+        [Required(ErrorMessage = "Please Enter Family !")]
         public string FName { get; set; }
         public string CodeMeli { get; set; }
         public string Phone { get; set; }
+        [Required(ErrorMessage = "Please Enter Email !")]
         public string Email { get; set; }
         public string Address { get; set; }
-    
-        public virtual Roles Roles { get; set; }
     }
 }

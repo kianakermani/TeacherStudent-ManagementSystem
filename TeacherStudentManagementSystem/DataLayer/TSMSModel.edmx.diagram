@@ -4,15 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="544c9fae428f470d99220e208df004d6" Name="Diagram1">
-        <EntityTypeShape EntityType="TeacherStudentDBModel.Roles" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="TeacherStudentDBModel.Students" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="TeacherStudentDBModel.Teachers" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="TeacherStudentDBModel.Users" Width="1.5" PointX="3" PointY="8.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="TeacherStudentDBModel.Admin" Width="1.5" PointX="3" PointY="11.125" IsExpanded="true" />
-        <AssociationConnector Association="TeacherStudentDBModel.FK_Admin_Roles" ManuallyRouted="false" />
-        <AssociationConnector Association="TeacherStudentDBModel.FK_Students_Roles" ManuallyRouted="false" />
-        <AssociationConnector Association="TeacherStudentDBModel.FK_Teachers_Roles" ManuallyRouted="false" />
+      <Diagram DiagramId="c84f114a92ec414886a56666dd7d930f" Name="Diagram1">
+        <EntityTypeShape EntityType="TeacherStudentDBModel.Courses" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeacherStudentDBModel.Roles" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeacherStudentDBModel.Students" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeacherStudentDBModel.Teachers" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeacherStudentDBModel.Users" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeacherStudentDBModel.Admin" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="TeacherStudentDBModel.FK_Users_Roles" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>

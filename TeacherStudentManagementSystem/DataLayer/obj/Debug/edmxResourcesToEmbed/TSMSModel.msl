@@ -1,6 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="TeacherStudentDBModelStoreContainer" CdmEntityContainer="TeacherStudentDBEntities">
+    <EntitySetMapping Name="Courses">
+      <EntityTypeMapping TypeName="TeacherStudentDBModel.Courses">
+        <MappingFragment StoreEntitySet="Courses">
+          <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Teacher" ColumnName="Teacher" />
+          <ScalarProperty Name="Days" ColumnName="Days" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Roles">
       <EntityTypeMapping TypeName="TeacherStudentDBModel.Roles">
         <MappingFragment StoreEntitySet="Roles">
@@ -13,13 +24,13 @@
       <EntityTypeMapping TypeName="TeacherStudentDBModel.Students">
         <MappingFragment StoreEntitySet="Students">
           <ScalarProperty Name="SID" ColumnName="SID" />
-          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Fname" ColumnName="Fname" />
           <ScalarProperty Name="CodeMeli" ColumnName="CodeMeli" />
           <ScalarProperty Name="Reshte" ColumnName="Reshte" />
           <ScalarProperty Name="Phone" ColumnName="Phone" />
           <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -27,7 +38,6 @@
       <EntityTypeMapping TypeName="TeacherStudentDBModel.Teachers">
         <MappingFragment StoreEntitySet="Teachers">
           <ScalarProperty Name="TID" ColumnName="TID" />
-          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="FName" ColumnName="FName" />
           <ScalarProperty Name="CodeMeli" ColumnName="CodeMeli" />
@@ -52,7 +62,6 @@
         <MappingFragment StoreEntitySet="Admin">
           <ScalarProperty Name="AdminID" ColumnName="AdminID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Phone" ColumnName="Phone" />
           <ScalarProperty Name="Address" ColumnName="Address" />

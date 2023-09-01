@@ -6,14 +6,25 @@ warning 6002: The table/view 'TeacherStudentDB.dbo.Admin' does not have a primar
     <Key>
       <PropertyRef Name="AdminID" />
       <PropertyRef Name="Name" />
-      <PropertyRef Name="RoleID" />
+      <PropertyRef Name="Email" />
+      <PropertyRef Name="Phone" />
+      <PropertyRef Name="Address" />
     </Key>
     <Property Name="AdminID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
-    <Property Name="RoleID" Type="int" Nullable="false" />
-    <Property Name="Email" Type="nvarchar" MaxLength="250" />
-    <Property Name="Phone" Type="varchar" MaxLength="150" />
-    <Property Name="Address" Type="nvarchar" MaxLength="550" />
+    <Property Name="Email" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Phone" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="550" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Courses">
+    <Key>
+      <PropertyRef Name="CID" />
+    </Key>
+    <Property Name="CID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Teacher" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Days" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Time" Type="nvarchar" MaxLength="150" Nullable="false" />
   </EntityType>
   <EntityType Name="Roles">
     <Key>
@@ -27,21 +38,20 @@ warning 6002: The table/view 'TeacherStudentDB.dbo.Admin' does not have a primar
       <PropertyRef Name="SID" />
     </Key>
     <Property Name="SID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="RoleID" Type="int" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
     <Property Name="Fname" Type="nvarchar" MaxLength="250" />
     <Property Name="CodeMeli" Type="varchar" MaxLength="150" />
     <Property Name="Reshte" Type="nvarchar" MaxLength="250" />
     <Property Name="Phone" Type="varchar" MaxLength="150" />
     <Property Name="Address" Type="nvarchar" MaxLength="550" />
+    <Property Name="Email" Type="varchar" MaxLength="150" />
   </EntityType>
   <EntityType Name="Teachers">
     <Key>
       <PropertyRef Name="TID" />
     </Key>
     <Property Name="TID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="RoleID" Type="int" Nullable="false" />
-    <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" />
     <Property Name="FName" Type="nvarchar" MaxLength="250" />
     <Property Name="CodeMeli" Type="varchar" MaxLength="150" />
     <Property Name="Phone" Type="varchar" MaxLength="150" />
@@ -57,42 +67,6 @@ warning 6002: The table/view 'TeacherStudentDB.dbo.Admin' does not have a primar
     <Property Name="UserName" Type="nvarchar" MaxLength="150" Nullable="false" />
     <Property Name="Password" Type="nvarchar" MaxLength="200" Nullable="false" />
   </EntityType>
-  <Association Name="FK_Admin_Roles">
-    <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
-    <End Role="Admin" Type="Self.Admin" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Roles">
-        <PropertyRef Name="RoleID" />
-      </Principal>
-      <Dependent Role="Admin">
-        <PropertyRef Name="RoleID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Students_Roles">
-    <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
-    <End Role="Students" Type="Self.Students" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Roles">
-        <PropertyRef Name="RoleID" />
-      </Principal>
-      <Dependent Role="Students">
-        <PropertyRef Name="RoleID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Teachers_Roles">
-    <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
-    <End Role="Teachers" Type="Self.Teachers" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Roles">
-        <PropertyRef Name="RoleID" />
-      </Principal>
-      <Dependent Role="Teachers">
-        <PropertyRef Name="RoleID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Users_Roles">
     <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
     <End Role="Users" Type="Self.Users" Multiplicity="*" />
@@ -106,6 +80,7 @@ warning 6002: The table/view 'TeacherStudentDB.dbo.Admin' does not have a primar
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="TeacherStudentDBModelStoreContainer">
+    <EntitySet Name="Courses" EntityType="Self.Courses" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Teachers" EntityType="Self.Teachers" Schema="dbo" store:Type="Tables" />
@@ -114,24 +89,11 @@ warning 6002: The table/view 'TeacherStudentDB.dbo.Admin' does not have a primar
       <DefiningQuery>SELECT 
     [Admin].[AdminID] AS [AdminID], 
     [Admin].[Name] AS [Name], 
-    [Admin].[RoleID] AS [RoleID], 
     [Admin].[Email] AS [Email], 
     [Admin].[Phone] AS [Phone], 
     [Admin].[Address] AS [Address]
     FROM [dbo].[Admin] AS [Admin]</DefiningQuery>
     </EntitySet>
-    <AssociationSet Name="FK_Admin_Roles" Association="Self.FK_Admin_Roles">
-      <End Role="Roles" EntitySet="Roles" />
-      <End Role="Admin" EntitySet="Admin" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Students_Roles" Association="Self.FK_Students_Roles">
-      <End Role="Roles" EntitySet="Roles" />
-      <End Role="Students" EntitySet="Students" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Teachers_Roles" Association="Self.FK_Teachers_Roles">
-      <End Role="Roles" EntitySet="Roles" />
-      <End Role="Teachers" EntitySet="Teachers" />
-    </AssociationSet>
     <AssociationSet Name="FK_Users_Roles" Association="Self.FK_Users_Roles">
       <End Role="Roles" EntitySet="Roles" />
       <End Role="Users" EntitySet="Users" />

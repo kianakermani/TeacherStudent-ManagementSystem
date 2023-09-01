@@ -15,14 +15,12 @@ namespace DataLayer
     public partial class Students
     {
         public int SID { get; set; }
-        public int RoleID { get; set; }
         public string Name { get; set; }
         public string Fname { get; set; }
         public string CodeMeli { get; set; }
         public string Reshte { get; set; }
         public string Phone { get; set; }
         public string Address { get; set; }
-    
-        public virtual Roles Roles { get; set; }
+        public string Email { get; set; }
     }
 }

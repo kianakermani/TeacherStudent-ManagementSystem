@@ -9,6 +9,7 @@ namespace DataLayer.ViewModels
 {
     public class TeacherViewModel
     {
+        [Key]
         [Display(Name = "TID")]
         public int TeacherID { get; set; }
         [Display(Name = "Name")]

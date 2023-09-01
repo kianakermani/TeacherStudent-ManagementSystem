@@ -3,6 +3,7 @@ using DataLayer.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data.Entity.Validation;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -94,7 +95,8 @@ namespace TeacherStudentManagementSystem.Controllers
                 cnn.Close();
             }
             return View(pr)
-;        }
+;
+        }
 
         public ActionResult AllStu(StudentViewModel st)
         {
@@ -160,6 +162,52 @@ namespace TeacherStudentManagementSystem.Controllers
 ;
         }
 
+
+        public ActionResult AddProf()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddProf([Bind(Include = "Name,FName,CodeMeli,Phone,Email,Address")] Teachers teacher )
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    //teacher.Name = Convert.ToString(Session["Name"]);
+                    //teacher.FName=Convert.ToString(Session["FName"]);
+                    //teacher.CodeMeli=Convert.ToString(Session["CodeMeli"]);
+                    //teacher.Phone=Convert.ToString(Session["Phone"]);
+                    //teacher.Email=Convert.ToString(Session["Email"]);
+                    //teacher.Address=Convert.ToString(Session["Address"]);
+
+                    Teachers te = new Teachers();
+                    te.Name = teacher.Name;
+                    te.FName = teacher.FName;
+                    te.CodeMeli = teacher.CodeMeli;
+                    te.Phone = teacher.Phone;
+                    te.Email = teacher.Email;
+                    te.Address = teacher.Address;
+                    db.Teachers.Add(teacher);
+                    db.SaveChanges();
+                    return RedirectToAction("AllProf");
+                }
+                catch (DbEntityValidationException ex)
+                {
+                    foreach (var entityValidationErrors in ex.EntityValidationErrors)
+                    {
+                        foreach (var validationError in entityValidationErrors.ValidationErrors)
+                        {
+                            Response.Write("Property: " + validationError.PropertyName + " Error: " + validationError.ErrorMessage);
+                        }
+                    }
+                }
+            }
+
+            return View(teacher);
+        }
 
 
         [HttpPost]

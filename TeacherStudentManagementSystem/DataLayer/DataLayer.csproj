@@ -189,7 +189,9 @@
     <Compile Include="Admin.cs">
       <DependentUpon>TSMSModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="MetaDataClasses\RolesMetaData.cs" />
+    <Compile Include="Courses.cs">
+      <DependentUpon>TSMSModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Roles.cs">
       <DependentUpon>TSMSModel.tt</DependentUpon>

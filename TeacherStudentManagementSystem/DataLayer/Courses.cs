@@ -12,12 +12,12 @@ namespace DataLayer
     using System;
     using System.Collections.Generic;
     
-    public partial class Admin
+    public partial class Courses
     {
-        public int AdminID { get; set; }
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public string Phone { get; set; }
-        public string Address { get; set; }
+        public int CID { get; set; }
+        public string Title { get; set; }
+        public string Teacher { get; set; }
+        public string Days { get; set; }
+        public string Time { get; set; }
     }
 }
