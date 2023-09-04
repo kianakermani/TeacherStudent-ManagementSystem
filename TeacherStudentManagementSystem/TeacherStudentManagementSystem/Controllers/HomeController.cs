@@ -3,6 +3,10 @@ using DataLayer.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data.Entity;
+using System.Data.Entity.Core;
+using System.Data.Entity.Core.Objects;
+using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Validation;
 using System.Data.SqlClient;
 using System.Linq;
@@ -33,6 +37,8 @@ namespace TeacherStudentManagementSystem.Controllers
             return View();
         }
         [Authorize(Roles = "Admin")]
+
+        //Admin Functions 
         public ActionResult AdminPanel(AdminViewModel ad)
         {
             string connetionString;
@@ -65,7 +71,7 @@ namespace TeacherStudentManagementSystem.Controllers
 
             return View(ad);
         }
-
+        //Admin Panel , Teacher Section
         public ActionResult AllProf(TeacherViewModel pr)
         {
             string connetionString;
@@ -98,6 +104,97 @@ namespace TeacherStudentManagementSystem.Controllers
 ;
         }
 
+
+        public ActionResult AddProf()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddProf([Bind(Include = "Name,FName,CodeMeli,Phone,Email,Address")] Teachers teacher)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    Teachers te = new Teachers();
+                    te.Name = teacher.Name;
+                    te.FName = teacher.FName;
+                    te.CodeMeli = teacher.CodeMeli;
+                    te.Phone = teacher.Phone;
+                    te.Email = teacher.Email;
+                    te.Address = teacher.Address;
+                    db.Teachers.Add(teacher);
+                    db.SaveChanges();
+                    return RedirectToAction("AllProf");
+                }
+                catch (DbEntityValidationException ex)
+                {
+                    foreach (var entityValidationErrors in ex.EntityValidationErrors)
+                    {
+                        foreach (var validationError in entityValidationErrors.ValidationErrors)
+                        {
+                            Response.Write("Property: " + validationError.PropertyName + " Error: " + validationError.ErrorMessage);
+                        }
+                    }
+                }
+            }
+
+            return View(teacher);
+        }
+
+        [HttpGet]
+        public ActionResult EditProf(int id)
+        {
+            var obj = db.Teachers.Find(id);
+            return View(obj);
+        }
+
+        [HttpPost]
+        public ActionResult EditProf(Teachers te)
+        {
+            db.Entry(te).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("AllProf", "Home");
+
+        }
+
+        [HttpGet]
+        public ActionResult DeleteProf(int id)
+        {
+            var obj = db.Teachers.Find(id);
+            db.Teachers.Attach(obj);
+            db.Teachers.Remove(obj);
+            bool saveFailed;
+            do
+            {
+                saveFailed = false;
+
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch (DbUpdateConcurrencyException ex)
+                {
+                    saveFailed = true;
+
+                    // Update the values of the entity that failed to save from the store
+                    ex.Entries.Single().Reload();
+                }
+
+            } while (saveFailed);
+
+            return RedirectToAction("AllProf", "Home");
+        }
+
+        public ActionResult DetailProf(int id)
+        {
+            var obj = db.Teachers.Find(id);
+            return View(obj);
+        }
+
+        //Admin Panel , Student Section
         public ActionResult AllStu(StudentViewModel st)
         {
             string connetionString;
@@ -130,6 +227,99 @@ namespace TeacherStudentManagementSystem.Controllers
 ;
         }
 
+        public ActionResult AddStu()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddStu([Bind(Include = "Name,Fname,CodeMeli,Reshte,Phone,Email,Address")] Students student)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    Students st = new Students();
+                    st.Name = student.Name;
+                    st.Fname = student.Fname;
+                    st.CodeMeli = student.CodeMeli;
+                    st.Reshte = student.Reshte;
+                    st.Phone = student.Phone;
+                    st.Email = student.Email;
+                    st.Address = student.Address;
+                    db.Students.Add(student);
+                    db.SaveChanges();
+                    return RedirectToAction("AllStu");
+                }
+                catch (DbEntityValidationException ex)
+                {
+                    foreach (var entityValidationErrors in ex.EntityValidationErrors)
+                    {
+                        foreach (var validationError in entityValidationErrors.ValidationErrors)
+                        {
+                            Response.Write("Property: " + validationError.PropertyName + " Error: " + validationError.ErrorMessage);
+                        }
+                    }
+                }
+            }
+
+            return View(student);
+        }
+
+
+        [HttpGet]
+        public ActionResult EditStu(int id)
+        {
+            var obj = db.Students.Find(id);
+            return View(obj);
+        }
+
+        [HttpPost]
+        public ActionResult EditStu(Students st)
+        {
+            db.Entry(st).State = EntityState.Modified;
+
+            db.SaveChanges();
+            return RedirectToAction("AllStu", "Home");
+
+        }
+
+        [HttpGet]
+        public ActionResult DeleteStu(int id)
+        {
+            var obj = db.Students.Find(id);
+            db.Students.Attach(obj);
+            db.Students.Remove(obj);
+            bool saveFailed;
+            do
+            {
+                saveFailed = false;
+
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch (DbUpdateConcurrencyException ex)
+                {
+                    saveFailed = true;
+
+                    // Update the values of the entity that failed to save from the store
+                    ex.Entries.Single().Reload();
+                }
+
+            } while (saveFailed);
+
+            return RedirectToAction("AllStu", "Home");
+        }
+
+        public ActionResult DetailStu(int id)
+        {
+            var obj = db.Students.Find(id);
+            return View(obj);
+        }
+
+        //Admin Panel , Course Section
         public ActionResult AllCou(CourseViewModel co)
         {
             string connetionString;
@@ -148,6 +338,7 @@ namespace TeacherStudentManagementSystem.Controllers
                 while (sdr.Read())
                 {
                     var courseInfo = new CourseViewModel();
+                    courseInfo.CourseID = Convert.ToInt32(sdr["CID"]);
                     courseInfo.Title = sdr["Title"].ToString();
                     courseInfo.Teacher = sdr["Teacher"].ToString();
                     courseInfo.Days = sdr["Days"].ToString();
@@ -163,29 +354,28 @@ namespace TeacherStudentManagementSystem.Controllers
         }
 
 
-        public ActionResult AddProf()
+        public ActionResult AddCou()
         {
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AddProf([Bind(Include = "Name,FName,CodeMeli,Phone,Email,Address")] Teachers teacher )
+        public ActionResult AddCou([Bind(Include = "Title,Teacher,Days,Time")] Courses course)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    Teachers te = new Teachers();
-                    te.Name = teacher.Name;
-                    te.FName = teacher.FName;
-                    te.CodeMeli = teacher.CodeMeli;
-                    te.Phone = teacher.Phone;
-                    te.Email = teacher.Email;
-                    te.Address = teacher.Address;
-                    db.Teachers.Add(teacher);
+                    Courses co = new Courses();
+                    co.Title = course.Title;
+                    co.Teacher = course.Teacher;
+                    co.Days = course.Days;
+                    co.Time= course.Time;
+                    
+                    db.Courses.Add(course);
                     db.SaveChanges();
-                    return RedirectToAction("AllProf");
+                    return RedirectToAction("AllCou");
                 }
                 catch (DbEntityValidationException ex)
                 {
@@ -199,10 +389,57 @@ namespace TeacherStudentManagementSystem.Controllers
                 }
             }
 
-            return View(teacher);
+            return View(course);
+        }
+
+        [HttpGet]
+        public ActionResult EditCou(int id)
+        {
+            var obj = db.Courses.Find(id);
+            return View(obj);
+        }
+
+        [HttpPost]
+        public ActionResult EditCou(Courses co)
+        {
+            db.Entry(co).State = EntityState.Modified;
+
+            db.SaveChanges();
+            return RedirectToAction("AllCou", "Home");
+
+        }
+
+        [HttpGet]
+        public ActionResult DeleteCou(int id)
+        {
+            var obj = db.Courses.Find(id);
+            db.Courses.Attach(obj);
+            db.Courses.Remove(obj);
+            bool saveFailed;
+            do
+            {
+                saveFailed = false;
+
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch (DbUpdateConcurrencyException ex)
+                {
+                    saveFailed = true;
+
+                    // Update the values of the entity that failed to save from the store
+                    ex.Entries.Single().Reload();
+                }
+
+            } while (saveFailed);
+
+            return RedirectToAction("AllCou", "Home");
         }
 
 
+
+        //Login
         [HttpPost]
         public ActionResult Login(LoginViewModel login)
         {

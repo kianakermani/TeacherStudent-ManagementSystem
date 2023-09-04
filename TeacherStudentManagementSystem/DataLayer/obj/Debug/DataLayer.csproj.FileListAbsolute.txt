@@ -88,4 +88,16 @@ D:\Project\TeacherStudent-ManagementSystem\TeacherStudentManagementSystem\DataLa
 D:\Project\TeacherStudent-ManagementSystem\TeacherStudentManagementSystem\DataLayer\bin\Debug\ru\Microsoft.Data.SqlClient.resources.dll
 D:\Project\TeacherStudent-ManagementSystem\TeacherStudentManagementSystem\DataLayer\bin\Debug\zh-Hans\Microsoft.Data.SqlClient.resources.dll
 D:\Project\TeacherStudent-ManagementSystem\TeacherStudentManagementSystem\DataLayer\bin\Debug\zh-Hant\Microsoft.Data.SqlClient.resources.dll
-D:\Project\TeacherStudent-ManagementSystem\TeacherStudentManagementSystem\DataLayer\obj\Debug\DataLayer.csproj.AssemblyReference.cache
+D:\Project\TeacherStudent-ManagementSystem\TeacherStudentManagementSystem\DataLayer\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Project\TeacherStudent-ManagementSystem\TeacherStudentManagementSystem\DataLayer\bin\Debug\System.Web.Helpers.dll
+D:\Project\TeacherStudent-ManagementSystem\TeacherStudentManagementSystem\DataLayer\bin\Debug\System.Web.Mvc.dll
+D:\Project\TeacherStudent-ManagementSystem\TeacherStudentManagementSystem\DataLayer\bin\Debug\System.Web.Razor.dll
+D:\Project\TeacherStudent-ManagementSystem\TeacherStudentManagementSystem\DataLayer\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Project\TeacherStudent-ManagementSystem\TeacherStudentManagementSystem\DataLayer\bin\Debug\System.Web.WebPages.dll
+D:\Project\TeacherStudent-ManagementSystem\TeacherStudentManagementSystem\DataLayer\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Project\TeacherStudent-ManagementSystem\TeacherStudentManagementSystem\DataLayer\bin\Debug\System.Web.Helpers.xml
+D:\Project\TeacherStudent-ManagementSystem\TeacherStudentManagementSystem\DataLayer\bin\Debug\System.Web.Mvc.xml
+D:\Project\TeacherStudent-ManagementSystem\TeacherStudentManagementSystem\DataLayer\bin\Debug\System.Web.Razor.xml
+D:\Project\TeacherStudent-ManagementSystem\TeacherStudentManagementSystem\DataLayer\bin\Debug\System.Web.WebPages.xml
+D:\Project\TeacherStudent-ManagementSystem\TeacherStudentManagementSystem\DataLayer\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\Project\TeacherStudent-ManagementSystem\TeacherStudentManagementSystem\DataLayer\bin\Debug\System.Web.WebPages.Razor.xml

@@ -103,7 +103,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                  
+
                                     @Html.ActionLink("Add Professor", "AddProf", "Home", null, new { @class = "mini-sub-pro" })
                                 </li>
                             </ul>
@@ -118,12 +118,7 @@
                                     @Html.ActionLink("All Students", "AllStu", "Home", null, new { @class = "mini-sub-pro" })
                                 </li>
                                 <li>
-                                    <a title="Add Students" href="add-student.html">
-                                        <span class="mini-sub-pro">
-                                            Add
-                                            Student
-                                        </span>
-                                    </a>
+                                    @Html.ActionLink("Add Students", "AddStu", "Home", null, new { @class = "mini-sub-pro" })
                                 </li>
                             </ul>
                         </li>
@@ -133,20 +128,10 @@
                             </a>
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li>
-                                    <a title="All Courses" href="all-courses.html">
-                                        <span class="mini-sub-pro">
-                                            All
-                                            Courses
-                                        </span>
-                                    </a>
+                                    @Html.ActionLink("All Courses", "AllCou", "Home", null, new { @class = "mini-sub-pro" })
                                 </li>
                                 <li>
-                                    <a title="Add Courses" href="add-course.html">
-                                        <span class="mini-sub-pro">
-                                            Add
-                                            Course
-                                        </span>
-                                    </a>
+                                    @Html.ActionLink("Add Course", "AddCou", "Home", null, new { @class = "mini-sub-pro" })
                                 </li>
                             </ul>
                         </li>
@@ -189,7 +174,7 @@
                                                 <li class="nav-item">
                                                     <a href="#" data-toggle="dropdown" role="button"
                                                        aria-expanded="false" class="nav-link dropdown-toggle">
-                                                        <img src="img/product/dll.jpeg" alt="" />
+                                                        <img src="/content/Admin/img/product/dll.jpeg" alt="" />
                                                         <span class="admin-name">Super Admin</span>
                                                         <i class="fa fa-angle-down edu-icon edu-down-arrow"></i>
                                                     </a>
@@ -239,16 +224,22 @@
                                         <tbody>
                                             @foreach (var item in Model.teacher)
                                             {
-                                            <tr class="alert" role="alert">
-                                                <th scope="row">@Html.DisplayFor(m => item.TeacherID)</th>
-                                                <td>@Html.DisplayFor(m => item.Name)</td>
-                                                <td>@Html.DisplayFor(m => item.Family)</td>
-                                                <td>@Html.DisplayFor(m => item.Email)</td>
-                                                <td colspan="2">
-                                                    <a href="#" data-toggle="modal" data-target="#EditRecord" class="edit">Edit</a>  |
-                                                    <a href="#" data-toggle="modal" data-target="#DeleteRecord" class="delete" >Delete</a>
-                                                </td>
-                                            </tr>
+                                                <tr class="alert" role="alert">
+                                                    <th scope="row">@Html.DisplayFor(m => item.TeacherID)</th>
+                                                    <td>@Html.DisplayFor(m => item.Name)</td>
+                                                    <td>@Html.DisplayFor(m => item.Family)</td>
+                                                    <td>@Html.DisplayFor(m => item.Email)</td>
+                                                    <td colspan="2">
+                                                        @*<a href="#" data-toggle="modal" data-target="#Edit" class="edit" data-id="@item.TeacherID">Edit</a>*@
+                                                        @Html.ActionLink("Edit", "EditProf", "Home", new { id = item.TeacherID }, null)  |
+                                                        @*<a href="#" data-toggle="modal" data-target="#DeleteRecord" class="delete" data-id="@item.TeacherID">Delete</a>*@
+                                                        @*@Html.ActionLink("Delete", "DeleteProf", "Home", new { id = item.TeacherID }, null)*@
+                                                        @Html.ActionLink("Delete", "DeleteProf", new { id = item.TeacherID },
+                                                        new { onclick = "return confirm('Are you sure you want to delete this record?');" })   |
+                                                        @Html.ActionLink("Detail", "DetailProf", "Home", new { id = item.TeacherID }, null)
+
+                                                    </td>
+                                                </tr>
                                             }
                                         </tbody>
                                     </table>
@@ -276,7 +267,6 @@
     <script src="/content/Admin/js/wow.min.js"></script>
     <!-- price-slider JS
           ============================================ -->
-    <script src="js/jquery-price-slider.js"></script>
     <!-- meanmenu JS
           ============================================ -->
     <script src="/content/Admin/js/jquery.meanmenu.js"></script>
@@ -305,7 +295,6 @@
     <!-- morrisjs JS
           ============================================ -->
     <script src="/content/Admin/js/morrisjs/raphael-min.js"></script>
-    <script src="/content/Admin/js/morrisjs/morris.js"></script>
     <script src="/content/Admin/js/morrisjs/morris-active.js"></script>
     <!-- morrisjs JS
           ============================================ -->
@@ -326,6 +315,7 @@
     <!-- tawk chat JS
           ============================================ -->
     <script src="/content/Admin/js/tawk-chat.js"></script>
+
 </body>
 
 </html>

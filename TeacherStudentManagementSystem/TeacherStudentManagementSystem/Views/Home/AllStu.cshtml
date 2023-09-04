@@ -118,12 +118,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a title="Add Students" href="add-student.html">
-                                        <span class="mini-sub-pro">
-                                            Add
-                                            Student
-                                        </span>
-                                    </a>
+                                    @Html.ActionLink("Add Students", "AddStu", "Home", null, new { @class = "mini-sub-pro" })
                                 </li>
                             </ul>
                         </li>
@@ -136,12 +131,7 @@
                                     @Html.ActionLink("All Courses", "AllCou", "Home", null, new { @class = "mini-sub-pro" })
                                 </li>
                                 <li>
-                                    <a title="Add Courses" href="add-course.html">
-                                        <span class="mini-sub-pro">
-                                            Add
-                                            Course
-                                        </span>
-                                    </a>
+                                    @Html.ActionLink("Add Course", "AddCou", "Home", null, new { @class = "mini-sub-pro" })
                                 </li>
                             </ul>
                         </li>
@@ -184,7 +174,7 @@
                                                 <li class="nav-item">
                                                     <a href="#" data-toggle="dropdown" role="button"
                                                        aria-expanded="false" class="nav-link dropdown-toggle">
-                                                        <img src="img/product/dll.jpeg" alt="" />
+                                                        <img src="/content/Admin/img/product/dll.jpeg" alt="" />
                                                         <span class="admin-name">Super Admin</span>
                                                         <i class="fa fa-angle-down edu-icon edu-down-arrow"></i>
                                                     </a>
@@ -240,8 +230,14 @@
                                                 <td>@Html.DisplayFor(m => item.Family)</td>
                                                 <td>@Html.DisplayFor(m => item.Email)</td>
                                                 <td colspan="2">
-                                                    <a href="#" data-toggle="modal" data-target="#EditRecord" class="edit">Edit</a> 
-                                                    <a href="#" data-toggle="modal" data-target="#DeleteRecord" class="delete">Delete</a>
+                                                    @*<a href="#" data-toggle="modal" data-target="#Edit" class="edit" data-id="@item.TeacherID">Edit</a>*@
+                                                    @Html.ActionLink("Edit", "EditStu", "Home", new { id = item.StudentID }, null)  |
+                                                    @*<a href="#" data-toggle="modal" data-target="#DeleteRecord" class="delete" data-id="@item.TeacherID">Delete</a>*@
+                                                    @*@Html.ActionLink("Delete", "DeleteProf", "Home", new { id = item.TeacherID }, null)*@
+                                                    @Html.ActionLink("Delete", "DeleteStu", new { id = item.StudentID },
+                                                    new { onclick = "return confirm('Are you sure you want to delete this record?');" })   |
+                                                    @Html.ActionLink("Detail", "DetailStu", "Home", new { id = item.StudentID }, null)
+
                                                 </td>
                                             </tr>
                                             }

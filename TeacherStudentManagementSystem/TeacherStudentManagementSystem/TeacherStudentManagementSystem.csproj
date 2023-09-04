@@ -617,6 +617,13 @@
     <Content Include="Views\Home\AllStu.cshtml" />
     <Content Include="Views\Home\AllCou.cshtml" />
     <Content Include="Views\Home\AddProf.cshtml" />
+    <Content Include="Views\Home\EditProf.cshtml" />
+    <Content Include="Views\Home\DetailProf.cshtml" />
+    <Content Include="Views\Home\AddStu.cshtml" />
+    <Content Include="Views\Home\EditStu.cshtml" />
+    <Content Include="Views\Home\DetailStu.cshtml" />
+    <Content Include="Views\Home\AddCou.cshtml" />
+    <Content Include="Views\Home\EditCou.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

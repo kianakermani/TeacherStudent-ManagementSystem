@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace DataLayer.ViewModels
 {
     public class TeacherViewModel
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Key]
         [Display(Name = "TID")]
         public int TeacherID { get; set; }
