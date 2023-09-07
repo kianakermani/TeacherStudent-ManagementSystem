@@ -101,3 +101,4 @@ D:\Project\TeacherStudent-ManagementSystem\TeacherStudentManagementSystem\DataLa
 D:\Project\TeacherStudent-ManagementSystem\TeacherStudentManagementSystem\DataLayer\bin\Debug\System.Web.WebPages.xml
 D:\Project\TeacherStudent-ManagementSystem\TeacherStudentManagementSystem\DataLayer\bin\Debug\System.Web.WebPages.Deployment.xml
 D:\Project\TeacherStudent-ManagementSystem\TeacherStudentManagementSystem\DataLayer\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Project\TeacherStudent-ManagementSystem\TeacherStudentManagementSystem\DataLayer\obj\Debug\DataLayer.csproj.AssemblyReference.cache

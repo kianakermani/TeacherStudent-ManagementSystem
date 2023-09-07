@@ -26,11 +26,6 @@ namespace TeacherStudentManagementSystem.Controllers
         {
             return View();
         }
-        [Authorize(Roles = "Teacher")]
-        public ActionResult TeacherPanel()
-        {
-            return View();
-        }
         [Authorize(Roles = "Student")]
         public ActionResult StudentPanel()
         {
@@ -460,7 +455,7 @@ namespace TeacherStudentManagementSystem.Controllers
                     Session["Role"] = "Teacher";
                     Session["ID"] = User.RoleID;
                     FormsAuthentication.SetAuthCookie(User.UserName, login.RememberMe);
-                    return RedirectToAction("TeacherPanel", "Home");
+                    return RedirectToAction("TeacherPanel", "Teacher");
                 }
                 else if (User.RoleID == 3)
                 {
