@@ -335,6 +335,7 @@
     <Content Include="Content\Admin\css\tree-viewer\32px.png" />
     <Content Include="Content\Admin\css\tree-viewer\throbber.gif" />
     <Content Include="Content\Admin\css\tree-viewer\tree-viewer.css" />
+    <Content Include="Content\Admin\css\upcoming.css" />
     <Content Include="Content\Admin\fonts\educate-icon.svg" />
     <Content Include="Content\Admin\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\Admin\fonts\glyphicons-halflings-regular.svg" />
