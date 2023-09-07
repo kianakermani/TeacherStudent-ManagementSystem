@@ -1,6 +1,8 @@
 ﻿
+
 @{
     Layout = null;
+    TempData.Keep("user");
 }
 
 <!doctype html>
@@ -114,7 +116,7 @@
                                 <i class="fas fa-school"></i> <span class="mini-click-non">
                                     &nbsp; My
                                     Classes
-                                                              </span>
+                                </span>
                             </a>
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li>
@@ -196,18 +198,16 @@
                                         <div class="header-right-info">
                                             <ul class="nav navbar-nav mai-top-nav header-right-menu">
                                                 <li class="nav-item">
-                                                    <a href="#" data-toggle="dropdown" role="button" aria-expanded="false"
-                                                       class="nav-link dropdown-toggle">
+                                                    <a href="#" data-toggle="dropdown" role="button"
+                                                       aria-expanded="false" class="nav-link dropdown-toggle">
                                                         <img src="/content/Admin/img/product/dll.jpeg" alt="" />
-                                                        <span class="admin-name">Name Family</span>
+                                                        <span class="admin-name">@TempData["user"]</span>
                                                         <i class="fa fa-angle-down edu-icon edu-down-arrow"></i>
                                                     </a>
-                                                    <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
+                                                    <ul role="menu"
+                                                        class="dropdown-header-top author-log dropdown-menu animated zoomIn">
                                                         <li>
-                                                            <a href="#">
-                                                                <span class="edu-icon edu-locked author-log-ic"></span>Log
-                                                                Out
-                                                            </a>
+                                                            @Html.ActionLink("Log Out", "Login", "Home")
                                                         </li>
                                                     </ul>
                                                 </li>
@@ -225,10 +225,31 @@
         <div class="profile">
             <div class="profile">
                 <img src="/content/Admin/img/product/dll.jpeg" alt="" width="100" height="100">
+                @*@if (Model != null)
+        {
+            if (Model.user.Count > 0)
+            {
 
-                <div class="name">
-                    Name Family
-                </div>
+
+                <table>
+                    @foreach (var item in Model.user)
+                    {
+                    <div class="name">@Html.DisplayFor(m => item.Name) @Html.DisplayFor(m => item.Family)</div>
+
+
+
+                    }
+
+
+
+
+
+                </table>}
+        }*@
+            <div class="name"> @TempData["user"]</div>
+
+
+
                 <h4 style="margin-top: 50px;">Upcoming :</h4>
                 <div class="upcoming">
                     <div class="card-container">

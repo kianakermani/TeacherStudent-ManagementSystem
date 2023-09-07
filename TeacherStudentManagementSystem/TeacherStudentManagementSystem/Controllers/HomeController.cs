@@ -366,8 +366,8 @@ namespace TeacherStudentManagementSystem.Controllers
                     co.Title = course.Title;
                     co.Teacher = course.Teacher;
                     co.Days = course.Days;
-                    co.Time= course.Time;
-                    
+                    co.Time = course.Time;
+
                     db.Courses.Add(course);
                     db.SaveChanges();
                     return RedirectToAction("AllCou");
@@ -447,6 +447,7 @@ namespace TeacherStudentManagementSystem.Controllers
 
                     Session["Role"] = "Admin";
                     Session["ID"] = User.RoleID;
+                    Session["Name"] = User.Name;
                     FormsAuthentication.SetAuthCookie(User.UserName, login.RememberMe);
                     return RedirectToAction("AdminPanel", "Home");
                 }
@@ -454,7 +455,10 @@ namespace TeacherStudentManagementSystem.Controllers
                 {
                     Session["Role"] = "Teacher";
                     Session["ID"] = User.RoleID;
+                    Session["Name"] = User.Name;
                     FormsAuthentication.SetAuthCookie(User.UserName, login.RememberMe);
+                    TempData["user"] = User.Name; TempData.Keep("user");
+
                     return RedirectToAction("TeacherPanel", "Teacher");
                 }
                 else if (User.RoleID == 3)
@@ -462,6 +466,7 @@ namespace TeacherStudentManagementSystem.Controllers
                     Session["Role"] = "Student";
                     Session["ID"] = User.RoleID;
                     FormsAuthentication.SetAuthCookie(User.UserName, login.RememberMe);
+                    TempData["user"] = User.Name; TempData.Keep("user");
                     return RedirectToAction("StudentPanel", "Home");
                 }
 

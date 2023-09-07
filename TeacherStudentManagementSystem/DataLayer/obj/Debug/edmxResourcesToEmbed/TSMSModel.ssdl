@@ -66,6 +66,7 @@ warning 6002: The table/view 'TeacherStudentDB.dbo.Admin' does not have a primar
     <Property Name="RoleID" Type="int" Nullable="false" />
     <Property Name="UserName" Type="nvarchar" MaxLength="150" Nullable="false" />
     <Property Name="Password" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" />
   </EntityType>
   <Association Name="FK_Users_Roles">
     <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
