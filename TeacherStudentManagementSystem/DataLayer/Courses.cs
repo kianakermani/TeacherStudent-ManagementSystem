@@ -19,5 +19,7 @@ namespace DataLayer
         public string Teacher { get; set; }
         public string Days { get; set; }
         public string Time { get; set; }
+        public string StartDate { get; set; }
+        public string UserName { get; set; }
     }
 }

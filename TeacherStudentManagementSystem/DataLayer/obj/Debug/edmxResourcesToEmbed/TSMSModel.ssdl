@@ -25,6 +25,8 @@ warning 6002: The table/view 'TeacherStudentDB.dbo.Admin' does not have a primar
     <Property Name="Teacher" Type="nvarchar" MaxLength="150" Nullable="false" />
     <Property Name="Days" Type="nvarchar" MaxLength="150" Nullable="false" />
     <Property Name="Time" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="StartDate" Type="nvarchar" MaxLength="150" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="150" />
   </EntityType>
   <EntityType Name="Roles">
     <Key>
@@ -62,7 +64,7 @@ warning 6002: The table/view 'TeacherStudentDB.dbo.Admin' does not have a primar
     <Key>
       <PropertyRef Name="UserID" />
     </Key>
-    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
     <Property Name="RoleID" Type="int" Nullable="false" />
     <Property Name="UserName" Type="nvarchar" MaxLength="150" Nullable="false" />
     <Property Name="Password" Type="nvarchar" MaxLength="200" Nullable="false" />

@@ -9,6 +9,8 @@
           <ScalarProperty Name="Teacher" ColumnName="Teacher" />
           <ScalarProperty Name="Days" ColumnName="Days" />
           <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -1,4 +1,4 @@
-﻿
+﻿@model DataLayer.ViewModels.CourseViewModel
 
 @{
     Layout = null;
@@ -226,67 +226,65 @@
             <div class="profile">
                 <img src="/content/Admin/img/product/dll.jpeg" alt="" width="100" height="100">
                 @*@if (Model != null)
-        {
-            if (Model.user.Count > 0)
-            {
-
-
-                <table>
-                    @foreach (var item in Model.user)
                     {
-                    <div class="name">@Html.DisplayFor(m => item.Name) @Html.DisplayFor(m => item.Family)</div>
+                        if (Model.user.Count > 0)
+                        {
+
+
+                            <table>
+                                @foreach (var item in Model.user)
+                                {
+                                <div class="name">@Html.DisplayFor(m => item.Name) @Html.DisplayFor(m => item.Family)</div>
+
+
+
+                                }
+
+
+
+
+
+                            </table>}
+                    }*@
+                <div class="name">Welcome @TempData["user"] !</div>
+
+                @if (Model != null)
+                {
+                    if (Model.course.Count > 0)
+                    {
+                        <div>
+                            <h4 style="margin-top: 50px;">Upcoming :</h4>
+                            @foreach (var item in Model.course)
+                            {
+
+                                <div class="upcoming">
+                                    <div class="card-container">
+                                        <div class="photo-container">
+                                            <div class="date">
+                                                @Html.DisplayFor(m => item.StartDate)
+                                            </div>
+                                            <div class="image"></div>
+                                        </div>
+                                        <div class="info-container">
+                                            <div class="event-name">
+                                                @Html.DisplayFor(m => item.Title)
+                                            </div>
+                                            <div class="event-location">
+                                                @Html.DisplayFor(m => item.Days) | @Html.DisplayFor(m => item.Time)
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
 
 
 
                     }
+                }
 
 
 
-
-
-                </table>}
-        }*@
-            <div class="name"> @TempData["user"]</div>
-
-
-
-                <h4 style="margin-top: 50px;">Upcoming :</h4>
-                <div class="upcoming">
-                    <div class="card-container">
-                        <div class="photo-container">
-                            <div class="date">
-                                <div class="day">15</div>
-                                <div class="month">MAY</div>
-                            </div>
-                            <div class="image"></div>
-                        </div>
-                        <div class="info-container">
-                            <div class="event-name">
-                                Pre-Mason Day
-                            </div>
-                            <div class="event-location">
-                                Early celebration in the Corner Pocket
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-container">
-                        <div class="photo-container">
-                            <div class="date">
-                                <div class="day">16</div>
-                                <div class="month">MAY</div>
-                            </div>
-                            <div class="image"></div>
-                        </div>
-                        <div class="info-container">
-                            <div class="event-name">
-                                Mason Day
-                            </div>
-                            <div class="event-location">
-                                See headlining artist: Soulja Boy
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
             </div>
 

@@ -459,7 +459,7 @@ namespace TeacherStudentManagementSystem.Controllers
                     FormsAuthentication.SetAuthCookie(User.UserName, login.RememberMe);
                     TempData["user"] = User.Name; TempData.Keep("user");
 
-                    return RedirectToAction("TeacherPanel", "Teacher");
+                    return RedirectToAction("TeacherPanel", "Teacher" , User);
                 }
                 else if (User.RoleID == 3)
                 {
@@ -481,6 +481,8 @@ namespace TeacherStudentManagementSystem.Controllers
             return View(login);
 
         }
+
+        
 
 
     }

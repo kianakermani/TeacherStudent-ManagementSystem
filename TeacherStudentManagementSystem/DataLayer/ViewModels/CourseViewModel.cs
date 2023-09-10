@@ -22,6 +22,10 @@ namespace DataLayer.ViewModels
         public string Days { get; set; }
         [Display(Name = "Time")]
         public string Time { get; set; }
+        [Display(Name = "StartDate")]
+        public string StartDate { get; set; }
+        [Display(Name = "UserName")]
+        public string UserName { get; set; }
 
         public List<CourseViewModel> course { get; set; }
     }
