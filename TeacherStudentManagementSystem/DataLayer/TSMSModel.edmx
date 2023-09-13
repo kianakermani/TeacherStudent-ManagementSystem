@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="TeacherStudentDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="TeacherStudentDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <!--Errors Found During Generation:
 warning 6002: The table/view 'TeacherStudentDB.dbo.Admin' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Admin">
@@ -32,6 +32,17 @@ warning 6002: The table/view 'TeacherStudentDB.dbo.Admin' does not have a primar
           <Property Name="Time" Type="nvarchar" MaxLength="150" Nullable="false" />
           <Property Name="StartDate" Type="nvarchar" MaxLength="150" />
           <Property Name="UserName" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="HomeWork">
+          <Key>
+            <PropertyRef Name="HID" />
+          </Key>
+          <Property Name="HID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TitleLesson" Type="nvarchar" MaxLength="150" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="150" />
+          <Property Name="TeacherName" Type="nvarchar" MaxLength="150" />
+          <Property Name="TeacherID" Type="nvarchar" MaxLength="150" />
+          <Property Name="DeliveryDate" Type="nvarchar" MaxLength="150" />
         </EntityType>
         <EntityType Name="Roles">
           <Key>
@@ -89,6 +100,7 @@ warning 6002: The table/view 'TeacherStudentDB.dbo.Admin' does not have a primar
         </Association>
         <EntityContainer Name="TeacherStudentDBModelStoreContainer">
           <EntitySet Name="Courses" EntityType="Self.Courses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HomeWork" EntityType="Self.HomeWork" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Teachers" EntityType="Self.Teachers" Schema="dbo" store:Type="Tables" />
@@ -107,8 +119,7 @@ warning 6002: The table/view 'TeacherStudentDB.dbo.Admin' does not have a primar
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TeacherStudentDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -205,7 +216,19 @@ warning 6002: The table/view 'TeacherStudentDB.dbo.Admin' does not have a primar
             <End Role="Roles" EntitySet="Roles" />
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
+          <EntitySet Name="HomeWork" EntityType="TeacherStudentDBModel.HomeWork" />
         </EntityContainer>
+        <EntityType Name="HomeWork">
+          <Key>
+            <PropertyRef Name="HID" />
+          </Key>
+          <Property Name="HID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TitleLesson" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Subject" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="TeacherName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="TeacherID" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="DeliveryDate" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -279,6 +302,18 @@ warning 6002: The table/view 'TeacherStudentDB.dbo.Admin' does not have a primar
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HomeWork">
+            <EntityTypeMapping TypeName="TeacherStudentDBModel.HomeWork">
+              <MappingFragment StoreEntitySet="HomeWork">
+                <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+                <ScalarProperty Name="TeacherID" ColumnName="TeacherID" />
+                <ScalarProperty Name="TeacherName" ColumnName="TeacherName" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="TitleLesson" ColumnName="TitleLesson" />
+                <ScalarProperty Name="HID" ColumnName="HID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

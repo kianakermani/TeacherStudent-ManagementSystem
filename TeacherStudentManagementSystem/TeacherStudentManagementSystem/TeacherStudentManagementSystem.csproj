@@ -729,6 +729,9 @@
     <Content Include="Views\Home\AddCou.cshtml" />
     <Content Include="Views\Home\EditCou.cshtml" />
     <Content Include="Views\Teacher\TeacherPanel.cshtml" />
+    <Content Include="Views\Teacher\ActiveHomeWork.cshtml" />
+    <Content Include="Views\Teacher\AddHomeWork.cshtml" />
+    <Content Include="Views\Teacher\EditHomeWork.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

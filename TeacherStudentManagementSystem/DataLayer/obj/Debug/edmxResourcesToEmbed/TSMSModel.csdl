@@ -93,5 +93,17 @@
       <End Role="Roles" EntitySet="Roles" />
       <End Role="Users" EntitySet="Users" />
     </AssociationSet>
+    <EntitySet Name="HomeWork" EntityType="TeacherStudentDBModel.HomeWork" />
   </EntityContainer>
+  <EntityType Name="HomeWork">
+    <Key>
+      <PropertyRef Name="HID" />
+    </Key>
+    <Property Name="HID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TitleLesson" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Subject" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="TeacherName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="TeacherID" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="DeliveryDate" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>

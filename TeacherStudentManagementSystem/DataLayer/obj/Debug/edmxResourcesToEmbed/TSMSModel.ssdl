@@ -28,6 +28,17 @@ warning 6002: The table/view 'TeacherStudentDB.dbo.Admin' does not have a primar
     <Property Name="StartDate" Type="nvarchar" MaxLength="150" />
     <Property Name="UserName" Type="nvarchar" MaxLength="150" />
   </EntityType>
+  <EntityType Name="HomeWork">
+    <Key>
+      <PropertyRef Name="HID" />
+    </Key>
+    <Property Name="HID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TitleLesson" Type="nvarchar" MaxLength="150" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="150" />
+    <Property Name="TeacherName" Type="nvarchar" MaxLength="150" />
+    <Property Name="TeacherID" Type="nvarchar" MaxLength="150" />
+    <Property Name="DeliveryDate" Type="nvarchar" MaxLength="150" />
+  </EntityType>
   <EntityType Name="Roles">
     <Key>
       <PropertyRef Name="RoleID" />
@@ -84,6 +95,7 @@ warning 6002: The table/view 'TeacherStudentDB.dbo.Admin' does not have a primar
   </Association>
   <EntityContainer Name="TeacherStudentDBModelStoreContainer">
     <EntitySet Name="Courses" EntityType="Self.Courses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HomeWork" EntityType="Self.HomeWork" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Teachers" EntityType="Self.Teachers" Schema="dbo" store:Type="Tables" />

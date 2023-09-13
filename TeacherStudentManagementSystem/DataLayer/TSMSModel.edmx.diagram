@@ -12,6 +12,7 @@
         <EntityTypeShape EntityType="TeacherStudentDBModel.Users" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="TeacherStudentDBModel.Admin" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="TeacherStudentDBModel.FK_Users_Roles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TeacherStudentDBModel.HomeWork" Width="1.5" PointX="7.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

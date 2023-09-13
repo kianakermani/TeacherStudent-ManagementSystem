@@ -1,9 +1,10 @@
-﻿@model DataLayer.ViewModels.CourseViewModel
+﻿@model DataLayer.ViewModels.HomeWorkViewModel
 
 @{
     Layout = null;
     TempData.Keep("user");
 }
+
 
 <!doctype html>
 <html class="no-js" lang="en">
@@ -100,18 +101,18 @@
                             </a>
                             <ul class="submenu-angle" aria-expanded="true">
                                 <li>
-                                    <a title="Dashboard v.1" href="TeacherPanel">
-                                        <span class="mini-sub-pro">
-                                            Professor Profile
-
-                                        </span>
-                                    </a>
+                                    @Html.ActionLink("Professor Profile", "TeacherPanel", "Teacher", null, new { @class = "mini-sub-pro" })
                                 </li>
                                 <li>
                                     @Html.ActionLink("Add HomeWork", "AddHomeWork", "Teacher", null, new { @class = "mini-sub-pro" })
                                 </li>
                                 <li>
-                                    @Html.ActionLink("Active HomeWorks", "ActiveHomeWork", "Teacher", null, new { @class = "mini-sub-pro" })
+                                    <a title="All Professors" href="ActiveHomeWork">
+                                        <span class="mini-sub-pro">
+                                            Active HomeWorks
+
+                                        </span>
+                                    </a>
                                 </li>
 
                             </ul>
@@ -177,73 +178,63 @@
             </div>
         </div>
         <!-- Sidenav -->
-        <div class="profile">
-            <div class="profile">
-                <img src="/content/Admin/img/product/dll.jpeg" alt="" width="100" height="100">
-                @*@if (Model != null)
-                    {
-                        if (Model.user.Count > 0)
-                        {
-
-
-                            <table>
-                                @foreach (var item in Model.user)
-                                {
-                                <div class="name">@Html.DisplayFor(m => item.Name) @Html.DisplayFor(m => item.Family)</div>
-
-
-
-                                }
-
-
-
-
-
-                            </table>}
-                    }*@
-                <div class="name">Welcome @TempData["user"] !</div>
-
-                @if (Model != null)
-                {
-                    if (Model.course.Count > 0)
-                    {
-                        <div>
-                            <h4 style="margin-top: 30px;">Upcoming Classes :</h4>
-                            @foreach (var item in Model.course)
+        <section class="ftco-section" style="margin-top: 100px;">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 text-center mb-5">
+                        <h2 class="heading-section">All HomeWorks</h2>
+                        <br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-wrap">
+                            @if (Model != null)
                             {
+                                if (Model.homework.Count > 0)
+                                {
+                                    <table class="table">
+                                        <thead class="thead-dark">
+                                            <tr>
 
-                                <div class="upcoming">
-                                    <div class="card-container">
-                                        <div class="photo-container">
-                                            <div class="date">
-                                                @Html.DisplayFor(m => item.StartDate)
-                                            </div>
-                                            <div class="image"></div>
-                                        </div>
-                                        <div class="info-container">
-                                            <div class="event-name">
-                                                @Html.DisplayFor(m => item.Title)
-                                            </div>
-                                            <div class="event-location">
-                                                @Html.DisplayFor(m => item.Days) | @Html.DisplayFor(m => item.Time)
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                                <th>Title Of lesson</th>
+                                                <th>Subject Of HomeWork </th>
+                                                <th>Professor Name</th>
+                                                <th>Delivary Date</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model.homework)
+                                            {
+                                                <tr class="alert" role="alert">
+                                                    <th scope="row">@Html.DisplayFor(m => item.Title)</th>
+                                                    <td>@Html.DisplayFor(m => item.Subject)</td>
+                                                    <td>@Html.DisplayFor(m => item.TeacherName)</td>
+                                                    <td>@Html.DisplayFor(m => item.DeliveryDate)</td>
+                                                    <td colspan="2">
+                                                        @*<a href="#" data-toggle="modal" data-target="#Edit" class="edit" data-id="@item.TeacherID">Edit</a>*@
+                                                        @Html.ActionLink("Edit", "EditHomeWork", "Teacher", new { id = item.ID }, null)  |
+                                                        @*<a href="#" data-toggle="modal" data-target="#DeleteRecord" class="delete" data-id="@item.TeacherID">Delete</a>*@
+                                                        @*@Html.ActionLink("Delete", "DeleteProf", "Home", new { id = item.TeacherID }, null)*@
+                                                        @Html.ActionLink("Delete", "DeleteHomeWork", new { id = item.ID },
+                                                        new { onclick = "return confirm('Are you sure you want to delete this record?');" })
+
+
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                }
                             }
                         </div>
-
-
-
-                    }
-                }
-
-
-
-
+                    </div>
+                </div>
             </div>
+        </section>
 
-        </div>
+
     </div>
 
     <!-- End -->

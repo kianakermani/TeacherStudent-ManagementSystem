@@ -1,9 +1,10 @@
-﻿@model DataLayer.ViewModels.CourseViewModel
+﻿@model DataLayer.HomeWork
 
 @{
     Layout = null;
     TempData.Keep("user");
 }
+
 
 <!doctype html>
 <html class="no-js" lang="en">
@@ -100,15 +101,16 @@
                             </a>
                             <ul class="submenu-angle" aria-expanded="true">
                                 <li>
-                                    <a title="Dashboard v.1" href="TeacherPanel">
+                                    
+                                    @Html.ActionLink("Professor Profile", "TeacherPanel", "Teacher", null, new { @class = "mini-sub-pro" })
+                                </li>
+                                <li>
+                                    <a title="Dashboard v.1" href="AddHomeWork">
                                         <span class="mini-sub-pro">
-                                            Professor Profile
+                                            Add HomeWork
 
                                         </span>
                                     </a>
-                                </li>
-                                <li>
-                                    @Html.ActionLink("Add HomeWork", "AddHomeWork", "Teacher", null, new { @class = "mini-sub-pro" })
                                 </li>
                                 <li>
                                     @Html.ActionLink("Active HomeWorks", "ActiveHomeWork", "Teacher", null, new { @class = "mini-sub-pro" })
@@ -177,75 +179,102 @@
             </div>
         </div>
         <!-- Sidenav -->
-        <div class="profile">
-            <div class="profile">
-                <img src="/content/Admin/img/product/dll.jpeg" alt="" width="100" height="100">
-                @*@if (Model != null)
-                    {
-                        if (Model.user.Count > 0)
-                        {
+        <div class="container" style="margin-top: 100px;">
 
+            @*<form class="well form-horizontal" action=" " method="post" id="contact_form">*@
+            @using (Html.BeginForm("AddHomeWork", "Teacher", FormMethod.Post, new { @class = "well form-horizontal" }))
+            {
+                @Html.AntiForgeryToken()
+                <fieldset>
 
-                            <table>
-                                @foreach (var item in Model.user)
-                                {
-                                <div class="name">@Html.DisplayFor(m => item.Name) @Html.DisplayFor(m => item.Family)</div>
+                    <!-- Form Name -->
+                    <legend>Add HomeWork </legend>
 
+                    <!-- Text input-->
 
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Title of Lesson </label>
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
 
-                                }
-
-
-
-
-
-                            </table>}
-                    }*@
-                <div class="name">Welcome @TempData["user"] !</div>
-
-                @if (Model != null)
-                {
-                    if (Model.course.Count > 0)
-                    {
-                        <div>
-                            <h4 style="margin-top: 30px;">Upcoming Classes :</h4>
-                            @foreach (var item in Model.course)
-                            {
-
-                                <div class="upcoming">
-                                    <div class="card-container">
-                                        <div class="photo-container">
-                                            <div class="date">
-                                                @Html.DisplayFor(m => item.StartDate)
-                                            </div>
-                                            <div class="image"></div>
-                                        </div>
-                                        <div class="info-container">
-                                            <div class="event-name">
-                                                @Html.DisplayFor(m => item.Title)
-                                            </div>
-                                            <div class="event-location">
-                                                @Html.DisplayFor(m => item.Days) | @Html.DisplayFor(m => item.Time)
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            }
+                                @*<input name="first_name" placeholder="" class="form-control" type="text">*@
+                                @Html.EditorFor(model => model.TitleLesson, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.TitleLesson, "", new { @class = "text-danger" })
+                            </div>
                         </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Subject Of HomeWork </label>
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+
+                                @*<input name="first_name" placeholder="" class="form-control" type="text">*@
+                                @Html.EditorFor(model => model.Subject, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Subject, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Text input-->
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Professor Name</label>
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+
+                                @*<input name="first_name" placeholder="" class="form-control" type="text">*@
+                                @Html.EditorFor(model => model.TeacherName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.TeacherName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Professor ID</label>
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+
+                                @*<input name="first_name" placeholder="" class="form-control" type="text">*@
+                                @Html.EditorFor(model => model.TeacherID, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.TeacherID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
 
 
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Delivary Date</label>
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
 
-                    }
-                }
+                                @*<input name="first_name" placeholder="" class="form-control" type="text">*@
+                                @Html.EditorFor(model => model.DeliveryDate, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.DeliveryDate, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
 
 
+                    <!-- Text input-->
+                    <!-- Text input-->
+                    <!-- Select Basic -->
+                    <!-- Button -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label"></label>
+                        <div class="col-md-4">
+                            <button type="submit" class="form-submit-button">
+                                Submit
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
 
-
-            </div>
-
+                </fieldset>
+            }
+            @*</form>*@
         </div>
-    </div>
-
+    </div><!-- /.container -->
     <!-- End -->
 
 
@@ -314,3 +343,73 @@
 </body>
 
 </html>
+
+@*<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddHomeWork</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>HomeWork</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.TitleLesson, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TitleLesson, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.TitleLesson, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Subject, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Subject, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Subject, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.TeacherName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TeacherName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.TeacherName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.TeacherID, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TeacherID, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.TeacherID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.DeliveryDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.DeliveryDate, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DeliveryDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</body>
+</html>*@

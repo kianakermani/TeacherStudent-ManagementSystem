@@ -31,5 +31,6 @@ namespace DataLayer
         public virtual DbSet<Teachers> Teachers { get; set; }
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<Admin> Admin { get; set; }
+        public virtual DbSet<HomeWork> HomeWork { get; set; }
     }
 }

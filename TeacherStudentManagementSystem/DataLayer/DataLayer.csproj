@@ -213,6 +213,9 @@
     <Compile Include="Courses.cs">
       <DependentUpon>TSMSModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="HomeWork.cs">
+      <DependentUpon>TSMSModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Roles.cs">
       <DependentUpon>TSMSModel.tt</DependentUpon>
@@ -243,6 +246,7 @@
     </Compile>
     <Compile Include="ViewModels\AdminViewModel.cs" />
     <Compile Include="ViewModels\CourseViewModel.cs" />
+    <Compile Include="ViewModels\HomeWorkViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\StudentViewModel.cs" />
     <Compile Include="ViewModels\TeacherViewModel.cs" />

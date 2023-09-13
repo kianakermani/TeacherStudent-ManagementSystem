@@ -71,5 +71,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="HomeWork">
+      <EntityTypeMapping TypeName="TeacherStudentDBModel.HomeWork">
+        <MappingFragment StoreEntitySet="HomeWork">
+          <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+          <ScalarProperty Name="TeacherID" ColumnName="TeacherID" />
+          <ScalarProperty Name="TeacherName" ColumnName="TeacherName" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="TitleLesson" ColumnName="TitleLesson" />
+          <ScalarProperty Name="HID" ColumnName="HID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>
