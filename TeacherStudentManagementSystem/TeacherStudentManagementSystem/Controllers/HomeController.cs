@@ -26,14 +26,9 @@ namespace TeacherStudentManagementSystem.Controllers
         {
             return View();
         }
-        [Authorize(Roles = "Student")]
-        public ActionResult StudentPanel()
-        {
-            return View();
-        }
-        [Authorize(Roles = "Admin")]
 
         //Admin Functions 
+        [Authorize(Roles = "Admin")]
         public ActionResult AdminPanel(AdminViewModel ad)
         {
             string connetionString;
@@ -467,7 +462,7 @@ namespace TeacherStudentManagementSystem.Controllers
                     Session["ID"] = User.RoleID;
                     FormsAuthentication.SetAuthCookie(User.UserName, login.RememberMe);
                     TempData["user"] = User.Name; TempData.Keep("user");
-                    return RedirectToAction("StudentPanel", "Home");
+                    return RedirectToAction("StudentPanel", "Student", User);
                 }
 
             }

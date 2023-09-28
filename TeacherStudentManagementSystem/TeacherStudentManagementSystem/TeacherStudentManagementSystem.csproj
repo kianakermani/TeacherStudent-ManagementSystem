@@ -375,6 +375,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\TeacherController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -713,7 +714,6 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\LoginLayout.cshtml" />
-    <Content Include="Views\Home\StudentPanel.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Shared\AdminLayout.cshtml" />
     <Content Include="Views\Home\AdminPanel.cshtml" />
@@ -732,6 +732,8 @@
     <Content Include="Views\Teacher\ActiveHomeWork.cshtml" />
     <Content Include="Views\Teacher\AddHomeWork.cshtml" />
     <Content Include="Views\Teacher\EditHomeWork.cshtml" />
+    <Content Include="Views\Student\StudentPanel.cshtml" />
+    <Content Include="Views\Student\MyHomeWork.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

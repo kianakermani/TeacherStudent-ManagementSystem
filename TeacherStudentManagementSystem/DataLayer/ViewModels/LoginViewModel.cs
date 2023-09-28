@@ -18,7 +18,6 @@ namespace DataLayer.ViewModels
         public string Password { get; set; }
         [Display(Name = "Name")]
         public string Name { get; set; }
-
         [Display(Name = "Remember Me")]
         public bool RememberMe { get; set; }
     }
