@@ -1,4 +1,4 @@
-﻿@model DataLayer.ViewModels.CourseViewModel
+﻿@model DataLayer.ViewModels.HomeWorkViewModel
 
 @{
     Layout = null;
@@ -11,7 +11,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Admin Dashboard</title>
+    <title>Student Dashboard</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
@@ -100,15 +100,15 @@
                             </a>
                             <ul class="submenu-angle" aria-expanded="true">
                                 <li>
-                                    <a title="Dashboard v.1" href="StudentPanel">
+                                    @Html.ActionLink("Student Profile", "StudentPanel", "Student", null, new { @class = "mini-sub-pro" })
+                                </li>
+                                <li>
+                                    <a title="Dashboard v.1" href="MyHomeWork">
                                         <span class="mini-sub-pro">
-                                            Student Profile
+                                            My HomeWorks
 
                                         </span>
                                     </a>
-                                </li>
-                                <li>
-                                    @Html.ActionLink("My HomeWorks", "AddHomeWork", "Teacher", null, new { @class = "mini-sub-pro" })
                                 </li>
 
                             </ul>
@@ -179,27 +179,27 @@
 
                 @if (Model != null)
                 {
-                    if (Model.course.Count > 0)
+                    if (Model.homework.Count > 0)
                     {
                         <div>
-                            <h4 style="margin-top: 30px;">Upcoming Classes :</h4>
-                            @foreach (var item in Model.course)
+                            <h4 style="margin-top: 30px;">HomeWorks :</h4>
+                            @foreach (var item in Model.homework)
                             {
 
                                 <div class="upcoming">
                                     <div class="card-container">
                                         <div class="photo-container">
                                             <div class="date">
-                                                @Html.DisplayFor(m => item.StartDate)
+                                              Until   @Html.DisplayFor(m => item.DeliveryDate)
                                             </div>
                                             <div class="image"></div>
                                         </div>
                                         <div class="info-container">
                                             <div class="event-name">
-                                                @Html.DisplayFor(m => item.Title) | @Html.DisplayFor(m => item.Teacher)
+                                                @Html.DisplayFor(m => item.Title) | @Html.DisplayFor(m => item.Subject)
                                             </div>
                                             <div class="event-location">
-                                                @Html.DisplayFor(m => item.Days) | @Html.DisplayFor(m => item.Time)
+                                                @Html.DisplayFor(m => item.TeacherName)
                                             </div>
                                         </div>
                                     </div>
@@ -286,5 +286,4 @@
     <!-- tawk chat JS
           ============================================ -->
 </body>
-
 </html>

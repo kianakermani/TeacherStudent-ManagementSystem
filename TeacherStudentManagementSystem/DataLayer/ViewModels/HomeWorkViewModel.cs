@@ -22,6 +22,8 @@ namespace DataLayer.ViewModels
         public string TeacherID { get; set; }
         [Display(Name = "DeliveryDate")]
         public string DeliveryDate { get; set; }
+        [Display(Name = "StudentID")]
+        public string StudentID { get; set; }
 
         public List<HomeWorkViewModel> homework { get; set; }
     }
