@@ -32,6 +32,7 @@ warning 6002: The table/view 'TeacherStudentDB.dbo.Admin' does not have a primar
           <Property Name="Time" Type="nvarchar" MaxLength="150" Nullable="false" />
           <Property Name="StartDate" Type="nvarchar" MaxLength="150" />
           <Property Name="UserName" Type="nvarchar" MaxLength="150" />
+          <Property Name="StudentID" Type="nvarchar" MaxLength="150" />
         </EntityType>
         <EntityType Name="HomeWork">
           <Key>
@@ -43,6 +44,7 @@ warning 6002: The table/view 'TeacherStudentDB.dbo.Admin' does not have a primar
           <Property Name="TeacherName" Type="nvarchar" MaxLength="150" />
           <Property Name="TeacherID" Type="nvarchar" MaxLength="150" />
           <Property Name="DeliveryDate" Type="nvarchar" MaxLength="150" />
+          <Property Name="StudentID" Type="nvarchar" MaxLength="150" />
         </EntityType>
         <EntityType Name="Roles">
           <Key>
@@ -85,6 +87,8 @@ warning 6002: The table/view 'TeacherStudentDB.dbo.Admin' does not have a primar
           <Property Name="UserName" Type="nvarchar" MaxLength="150" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="200" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="150" />
+          <Property Name="EmailAddress" Type="nvarchar" MaxLength="150" />
+          <Property Name="ResetPasswordCode" Type="nvarchar" MaxLength="150" />
         </EntityType>
         <Association Name="FK_Users_Roles">
           <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
@@ -134,6 +138,7 @@ warning 6002: The table/view 'TeacherStudentDB.dbo.Admin' does not have a primar
           <Property Name="Time" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="StartDate" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="UserName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="StudentID" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Roles">
           <Key>
@@ -178,6 +183,8 @@ warning 6002: The table/view 'TeacherStudentDB.dbo.Admin' does not have a primar
           <Property Name="Password" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Roles" Relationship="Self.FK_Users_Roles" FromRole="Users" ToRole="Roles" />
+          <Property Name="EmailAddress" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ResetPasswordCode" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Admin">
           <Key>
@@ -228,6 +235,7 @@ warning 6002: The table/view 'TeacherStudentDB.dbo.Admin' does not have a primar
           <Property Name="TeacherName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="TeacherID" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="DeliveryDate" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="StudentID" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -238,6 +246,7 @@ warning 6002: The table/view 'TeacherStudentDB.dbo.Admin' does not have a primar
           <EntitySetMapping Name="Courses">
             <EntityTypeMapping TypeName="TeacherStudentDBModel.Courses">
               <MappingFragment StoreEntitySet="Courses">
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
                 <ScalarProperty Name="CID" ColumnName="CID" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Teacher" ColumnName="Teacher" />
@@ -286,6 +295,8 @@ warning 6002: The table/view 'TeacherStudentDB.dbo.Admin' does not have a primar
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="TeacherStudentDBModel.Users">
               <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="ResetPasswordCode" ColumnName="ResetPasswordCode" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="RoleID" ColumnName="RoleID" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
@@ -308,6 +319,7 @@ warning 6002: The table/view 'TeacherStudentDB.dbo.Admin' does not have a primar
           <EntitySetMapping Name="HomeWork">
             <EntityTypeMapping TypeName="TeacherStudentDBModel.HomeWork">
               <MappingFragment StoreEntitySet="HomeWork">
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
                 <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
                 <ScalarProperty Name="TeacherID" ColumnName="TeacherID" />
                 <ScalarProperty Name="TeacherName" ColumnName="TeacherName" />

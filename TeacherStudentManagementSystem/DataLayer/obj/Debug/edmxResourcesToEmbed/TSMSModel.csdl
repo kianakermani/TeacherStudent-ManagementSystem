@@ -11,6 +11,7 @@
     <Property Name="Time" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="StartDate" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Name="UserName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="StudentID" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Roles">
     <Key>
@@ -55,6 +56,8 @@
     <Property Name="Password" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Roles" Relationship="Self.FK_Users_Roles" FromRole="Users" ToRole="Roles" />
+    <Property Name="EmailAddress" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ResetPasswordCode" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Admin">
     <Key>
@@ -105,5 +108,6 @@
     <Property Name="TeacherName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Name="TeacherID" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Name="DeliveryDate" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="StudentID" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>

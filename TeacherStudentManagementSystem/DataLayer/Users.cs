@@ -19,6 +19,8 @@ namespace DataLayer
         public string UserName { get; set; }
         public string Password { get; set; }
         public string Name { get; set; }
+        public string EmailAddress { get; set; }
+        public string ResetPasswordCode { get; set; }
     
         public virtual Roles Roles { get; set; }
     }

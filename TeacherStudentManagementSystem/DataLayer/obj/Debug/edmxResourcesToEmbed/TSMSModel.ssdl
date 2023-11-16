@@ -27,6 +27,7 @@ warning 6002: The table/view 'TeacherStudentDB.dbo.Admin' does not have a primar
     <Property Name="Time" Type="nvarchar" MaxLength="150" Nullable="false" />
     <Property Name="StartDate" Type="nvarchar" MaxLength="150" />
     <Property Name="UserName" Type="nvarchar" MaxLength="150" />
+    <Property Name="StudentID" Type="nvarchar" MaxLength="150" />
   </EntityType>
   <EntityType Name="HomeWork">
     <Key>
@@ -38,6 +39,7 @@ warning 6002: The table/view 'TeacherStudentDB.dbo.Admin' does not have a primar
     <Property Name="TeacherName" Type="nvarchar" MaxLength="150" />
     <Property Name="TeacherID" Type="nvarchar" MaxLength="150" />
     <Property Name="DeliveryDate" Type="nvarchar" MaxLength="150" />
+    <Property Name="StudentID" Type="nvarchar" MaxLength="150" />
   </EntityType>
   <EntityType Name="Roles">
     <Key>
@@ -80,6 +82,8 @@ warning 6002: The table/view 'TeacherStudentDB.dbo.Admin' does not have a primar
     <Property Name="UserName" Type="nvarchar" MaxLength="150" Nullable="false" />
     <Property Name="Password" Type="nvarchar" MaxLength="200" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="150" />
+    <Property Name="EmailAddress" Type="nvarchar" MaxLength="150" />
+    <Property Name="ResetPasswordCode" Type="nvarchar" MaxLength="150" />
   </EntityType>
   <Association Name="FK_Users_Roles">
     <End Role="Roles" Type="Self.Roles" Multiplicity="1" />

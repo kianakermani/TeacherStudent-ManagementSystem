@@ -21,5 +21,6 @@ namespace DataLayer
         public string Time { get; set; }
         public string StartDate { get; set; }
         public string UserName { get; set; }
+        public string StudentID { get; set; }
     }
 }

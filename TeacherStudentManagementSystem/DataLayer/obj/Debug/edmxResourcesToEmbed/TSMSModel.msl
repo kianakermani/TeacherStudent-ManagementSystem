@@ -4,6 +4,7 @@
     <EntitySetMapping Name="Courses">
       <EntityTypeMapping TypeName="TeacherStudentDBModel.Courses">
         <MappingFragment StoreEntitySet="Courses">
+          <ScalarProperty Name="StudentID" ColumnName="StudentID" />
           <ScalarProperty Name="CID" ColumnName="CID" />
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Teacher" ColumnName="Teacher" />
@@ -52,6 +53,8 @@
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="TeacherStudentDBModel.Users">
         <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="ResetPasswordCode" ColumnName="ResetPasswordCode" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
           <ScalarProperty Name="UserID" ColumnName="UserID" />
           <ScalarProperty Name="RoleID" ColumnName="RoleID" />
           <ScalarProperty Name="UserName" ColumnName="UserName" />
@@ -74,6 +77,7 @@
     <EntitySetMapping Name="HomeWork">
       <EntityTypeMapping TypeName="TeacherStudentDBModel.HomeWork">
         <MappingFragment StoreEntitySet="HomeWork">
+          <ScalarProperty Name="StudentID" ColumnName="StudentID" />
           <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
           <ScalarProperty Name="TeacherID" ColumnName="TeacherID" />
           <ScalarProperty Name="TeacherName" ColumnName="TeacherName" />

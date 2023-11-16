@@ -10,9 +10,11 @@ using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Validation;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using TeacherStudentManagementSystem.Utilities;
 
 namespace TeacherStudentManagementSystem.Controllers
 {
@@ -427,6 +429,42 @@ namespace TeacherStudentManagementSystem.Controllers
             return RedirectToAction("AllCou", "Home");
         }
 
+        //[HttpGet]
+        //[Route("ForgotPassword")]
+        //public ActionResult ForgotPassword()
+        //{
+
+        //    return View();
+        //}
+
+        //[Route("ForgotPassword")]
+        //[HttpPost]
+        //public ActionResult ForgotPassword(EmailViewModel email)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var user = db.Users.SingleOrDefault(u => u.EmailAddress == email.Email);
+        //        if (user != null)
+        //        {
+        //                string bodyEmail =
+        //                    PartialToStringClass.RenderPartialView("Home", "RecoveryPassword", user);
+        //                SendEmail.Send(user.EmailAddress, "Recovery Password", bodyEmail);
+        //                return View("SuccesForgotPassword", user);
+                    
+
+        //        }
+        //        else
+        //        {
+        //            ModelState.AddModelError("Email", "کاربری یافت نشد");
+        //        }
+        //    }
+        //    return View();
+        //}
+
+        //public ActionResult RecoveryPassword(string id)
+        //{
+        //    return PartialView();
+        //}
 
 
         //Login

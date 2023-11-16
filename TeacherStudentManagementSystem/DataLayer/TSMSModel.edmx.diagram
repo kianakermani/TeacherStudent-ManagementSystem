@@ -7,8 +7,8 @@
       <Diagram DiagramId="7fe2320782d4470da1c6c936d8f780dc" Name="Diagram1">
         <EntityTypeShape EntityType="TeacherStudentDBModel.Courses" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TeacherStudentDBModel.Roles" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="TeacherStudentDBModel.Students" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TeacherStudentDBModel.Teachers" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeacherStudentDBModel.Students" Width="1.5" PointX="3.125" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeacherStudentDBModel.Teachers" Width="1.5" PointX="5.25" PointY="4.125" IsExpanded="true" />
         <EntityTypeShape EntityType="TeacherStudentDBModel.Users" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="TeacherStudentDBModel.Admin" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="TeacherStudentDBModel.FK_Users_Roles" ManuallyRouted="false" />
