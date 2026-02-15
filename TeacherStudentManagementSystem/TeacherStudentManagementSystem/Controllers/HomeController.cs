@@ -21,7 +21,7 @@ namespace TeacherStudentManagementSystem.Controllers
     {
         TeacherStudentDBEntities db = new TeacherStudentDBEntities();
 
-
+        [AllowAnonymous]
         public ActionResult Login()
         {
             return View();
