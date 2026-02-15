@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\HP\\TeacherStudent-ManagementSystem\\TeacherStudentManagementSystem\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{DC38E3B5-4919-472B-BDF4-92F0675313B4}|TeacherStudentManagementSystem\\TeacherStudentManagementSystem.csproj|c:\\users\\hp\\teacherstudent-managementsystem\\teacherstudentmanagementsystem\\teacherstudentmanagementsystem\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DC38E3B5-4919-472B-BDF4-92F0675313B4}|TeacherStudentManagementSystem\\TeacherStudentManagementSystem.csproj|solutionrelative:teacherstudentmanagementsystem\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{DC38E3B5-4919-472B-BDF4-92F0675313B4}|TeacherStudentManagementSystem\\TeacherStudentManagementSystem.csproj|c:\\users\\hp\\teacherstudent-managementsystem\\teacherstudentmanagementsystem\\teacherstudentmanagementsystem\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{DC38E3B5-4919-472B-BDF4-92F0675313B4}|TeacherStudentManagementSystem\\TeacherStudentManagementSystem.csproj|solutionrelative:teacherstudentmanagementsystem\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
@@ -17,10 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{DC38E3B5-4919-472B-BDF4-92F0675313B4}|TeacherStudentManagementSystem\\TeacherStudentManagementSystem.csproj|C:\\Users\\HP\\TeacherStudent-ManagementSystem\\TeacherStudentManagementSystem\\teacherstudentmanagementsystem\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DC38E3B5-4919-472B-BDF4-92F0675313B4}|TeacherStudentManagementSystem\\TeacherStudentManagementSystem.csproj|solutionrelative:teacherstudentmanagementsystem\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DC38E3B5-4919-472B-BDF4-92F0675313B4}|TeacherStudentManagementSystem\\TeacherStudentManagementSystem.csproj|c:\\users\\hp\\teacherstudent-managementsystem\\teacherstudentmanagementsystem\\teacherstudentmanagementsystem\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DC38E3B5-4919-472B-BDF4-92F0675313B4}|TeacherStudentManagementSystem\\TeacherStudentManagementSystem.csproj|solutionrelative:teacherstudentmanagementsystem\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DC38E3B5-4919-472B-BDF4-92F0675313B4}|TeacherStudentManagementSystem\\TeacherStudentManagementSystem.csproj|c:\\users\\hp\\teacherstudent-managementsystem\\teacherstudentmanagementsystem\\teacherstudentmanagementsystem\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -41,50 +41,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "web.config",
-              "DocumentMoniker": "C:\\Users\\HP\\TeacherStudent-ManagementSystem\\TeacherStudentManagementSystem\\TeacherStudentManagementSystem\\Areas\\Admin\\Views\\web.config",
-              "RelativeDocumentMoniker": "TeacherStudentManagementSystem\\Areas\\Admin\\Views\\web.config",
-              "ToolTip": "C:\\Users\\HP\\TeacherStudent-ManagementSystem\\TeacherStudentManagementSystem\\TeacherStudentManagementSystem\\Areas\\Admin\\Views\\web.config",
-              "RelativeToolTip": "TeacherStudentManagementSystem\\Areas\\Admin\\Views\\web.config",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2026-02-15T06:36:29.764Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Web.config",
-              "DocumentMoniker": "C:\\Users\\HP\\TeacherStudent-ManagementSystem\\TeacherStudentManagementSystem\\TeacherStudentManagementSystem\\Web.config",
-              "RelativeDocumentMoniker": "TeacherStudentManagementSystem\\Web.config",
-              "ToolTip": "C:\\Users\\HP\\TeacherStudent-ManagementSystem\\TeacherStudentManagementSystem\\TeacherStudentManagementSystem\\Web.config",
-              "RelativeToolTip": "TeacherStudentManagementSystem\\Web.config",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAABYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2026-02-15T06:36:26.284Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Web.config",
-              "DocumentMoniker": "C:\\Users\\HP\\TeacherStudent-ManagementSystem\\TeacherStudentManagementSystem\\TeacherStudentManagementSystem\\Views\\Web.config",
-              "RelativeDocumentMoniker": "TeacherStudentManagementSystem\\Views\\Web.config",
-              "ToolTip": "C:\\Users\\HP\\TeacherStudent-ManagementSystem\\TeacherStudentManagementSystem\\TeacherStudentManagementSystem\\Views\\Web.config",
-              "RelativeToolTip": "TeacherStudentManagementSystem\\Views\\Web.config",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2026-02-15T06:36:14.37Z",
-              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
@@ -97,6 +58,45 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{d84ee353-0bef-5a41-a649-8f89aca5d84d}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "web.config",
+              "DocumentMoniker": "C:\\Users\\HP\\TeacherStudent-ManagementSystem\\TeacherStudentManagementSystem\\TeacherStudentManagementSystem\\Areas\\Admin\\Views\\web.config",
+              "RelativeDocumentMoniker": "TeacherStudentManagementSystem\\Areas\\Admin\\Views\\web.config",
+              "ToolTip": "C:\\Users\\HP\\TeacherStudent-ManagementSystem\\TeacherStudentManagementSystem\\TeacherStudentManagementSystem\\Areas\\Admin\\Views\\web.config",
+              "RelativeToolTip": "TeacherStudentManagementSystem\\Areas\\Admin\\Views\\web.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2026-02-15T06:36:29.764Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\Users\\HP\\TeacherStudent-ManagementSystem\\TeacherStudentManagementSystem\\TeacherStudentManagementSystem\\Web.config",
+              "RelativeDocumentMoniker": "TeacherStudentManagementSystem\\Web.config",
+              "ToolTip": "C:\\Users\\HP\\TeacherStudent-ManagementSystem\\TeacherStudentManagementSystem\\TeacherStudentManagementSystem\\Web.config",
+              "RelativeToolTip": "TeacherStudentManagementSystem\\Web.config",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAswBIAAABYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2026-02-15T06:36:26.284Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\Users\\HP\\TeacherStudent-ManagementSystem\\TeacherStudentManagementSystem\\TeacherStudentManagementSystem\\Views\\Web.config",
+              "RelativeDocumentMoniker": "TeacherStudentManagementSystem\\Views\\Web.config",
+              "ToolTip": "C:\\Users\\HP\\TeacherStudent-ManagementSystem\\TeacherStudentManagementSystem\\TeacherStudentManagementSystem\\Views\\Web.config",
+              "RelativeToolTip": "TeacherStudentManagementSystem\\Views\\Web.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2026-02-15T06:36:14.37Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -113,7 +113,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "Login.cshtml",
               "DocumentMoniker": "C:\\Users\\HP\\TeacherStudent-ManagementSystem\\TeacherStudentManagementSystem\\TeacherStudentManagementSystem\\Views\\Home\\Login.cshtml",
               "RelativeDocumentMoniker": "TeacherStudentManagementSystem\\Views\\Home\\Login.cshtml",
@@ -135,7 +135,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Users\\HP\\TeacherStudent-ManagementSystem\\TeacherStudentManagementSystem\\TeacherStudentManagementSystem\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "TeacherStudentManagementSystem\\Controllers\\HomeController.cs",
