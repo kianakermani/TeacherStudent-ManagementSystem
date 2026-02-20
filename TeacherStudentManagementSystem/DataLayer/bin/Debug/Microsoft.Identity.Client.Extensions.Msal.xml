@@ -4,6 +4,35 @@
         <name>Microsoft.Identity.Client.Extensions.Msal</name>
     </assembly>
     <members>
+        <member name="M:Microsoft.Identity.Client.Extensions.Msal.Accessors.FileWithPermissions.PosixCreate(System.String,System.Int32)">
+            <summary>
+            Equivalent to calling open() with flags  O_CREAT|O_WRONLY|O_TRUNC. O_TRUNC will truncate the file. 
+            See https://man7.org/linux/man-pages/man2/open.2.html
+            </summary>
+        </member>
+        <member name="M:Microsoft.Identity.Client.Extensions.Msal.Accessors.FileWithPermissions.WriteToNewFileWithOwnerRWPermissions(System.String,System.Byte[])">
+            <summary>
+            Creates a new file with "600" permissions (i.e. read / write only by the owner) and writes some data to it.
+            On Windows, file security is more complex, but an equivalent is achieved.
+            </summary>
+            <remarks>
+            This logic will not work on Mono, see https://github.com/NuGet/NuGet.Client/commit/d62db666c710bf95121fe8f5c6a6cbe01985456f
+            </remarks>
+            <exception cref="T:System.PlatformNotSupportedException"></exception>
+        </member>
+        <member name="M:Microsoft.Identity.Client.Extensions.Msal.Accessors.FileWithPermissions.WriteToNewFileWithOwnerRWPermissionsUnix(System.String,System.Byte[])">
+            <summary>
+            Based on https://stackoverflow.com/questions/45132081/file-permissions-on-linux-unix-with-net-core and on 
+            https://github.com/NuGet/NuGet.Client/commit/d62db666c710bf95121fe8f5c6a6cbe01985456f
+            </summary>
+        </member>
+        <member name="M:Microsoft.Identity.Client.Extensions.Msal.Accessors.FileWithPermissions.WriteToNewFileWithOwnerRWPermissionsWindows(System.String,System.Byte[])">
+            <summary>
+            Windows has a more complex file security system. "600" mode, i.e. read/write for owner translates to this in Windows.
+            </summary>
+            <param name="filePath"></param>
+            <param name="data"></param>
+        </member>
         <member name="M:Microsoft.Identity.Client.Extensions.Msal.ICacheAccessor.Clear">
             <summary>
             Deletes the cache
@@ -125,7 +154,7 @@
             Allows clients to listen for cache updates originating from disk.
             </summary>
             <remarks>
-            This event does not fire when the application is built against Mone framework (e.g. Xamarin.Mac), but it does fire on .Net Core on all 3 operating systems.
+            This event does not fire when the application is built against Mono framework, but it does fire on .Net Core on all 3 operating systems.
             </remarks>
         </member>
         <member name="M:Microsoft.Identity.Client.Extensions.Msal.MsalCacheHelper.GetAccountIdentifiersNoLockAsync(Microsoft.Identity.Client.Extensions.Msal.StorageCreationProperties,Microsoft.Identity.Client.Extensions.Msal.TraceSourceLogger)">
@@ -169,7 +198,7 @@
             Registers a token cache to synchronize with the persistent storage.
             </summary>
             <param name="tokenCache">The application token cache, typically referenced as <see cref="P:Microsoft.Identity.Client.IClientApplicationBase.UserTokenCache"/></param>
-            <remarks>Call <see cref="M:Microsoft.Identity.Client.Extensions.Msal.MsalCacheHelper.UnregisterCache(Microsoft.Identity.Client.ITokenCache)"/> to have the given token cache stop syncronizing.</remarks>
+            <remarks>Call <see cref="M:Microsoft.Identity.Client.Extensions.Msal.MsalCacheHelper.UnregisterCache(Microsoft.Identity.Client.ITokenCache)"/> to have the given token cache stop synchronizing.</remarks>
         </member>
         <member name="M:Microsoft.Identity.Client.Extensions.Msal.MsalCacheHelper.UnregisterCache(Microsoft.Identity.Client.ITokenCache)">
             <summary>
@@ -252,69 +281,6 @@
             </summary>
             <param name="info"></param>
             <param name="context"></param>
-        </member>
-        <member name="T:Microsoft.Identity.Client.Extensions.Msal.Storage">
-            <summary>
-            Wrapper over persistence layer. Does not use cross-process locking. To add cross-process locking, wrap calls 
-            with <see cref="T:Microsoft.Identity.Client.Extensions.Msal.CrossPlatLock"/>
-            </summary>
-            <remarks>Consider using the higher level <see cref="T:Microsoft.Identity.Client.Extensions.Msal.MsalCacheHelper"/></remarks>
-        </member>
-        <member name="P:Microsoft.Identity.Client.Extensions.Msal.Storage.StorageCreationProperties">
-            <summary>
-            The storage creation properties used to create this storage
-            </summary>
-        </member>
-        <member name="F:Microsoft.Identity.Client.Extensions.Msal.Storage.s_staticLogger">
-            <summary>
-            A default logger for use if the user doesn't want to provide their own.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Identity.Client.Extensions.Msal.Storage.Create(Microsoft.Identity.Client.Extensions.Msal.StorageCreationProperties,System.Diagnostics.TraceSource)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Microsoft.Identity.Client.Extensions.Msal.Storage"/> class.
-            The actual cache reading and writing is OS specific:
-            <list type="bullet">
-            <item>
-                <term>Windows</term>
-                <description>DPAPI encrypted file on behalf of the user. </description>
-            </item>
-            <item>
-                <term>Mac</term>
-                <description>Cache is stored in KeyChain.  </description>
-            </item>
-            <item>
-                <term>Linux</term>
-                <description>Cache is stored in Gnome KeyRing - https://developer.gnome.org/libsecret/0.18/  </description>
-            </item>
-            </list>
-            </summary>
-            <param name="creationProperties">Properties for creating the cache storage on disk</param>
-            <param name="logger">logger</param>
-            <returns></returns>
-        </member>
-        <member name="M:Microsoft.Identity.Client.Extensions.Msal.Storage.ReadData">
-            <summary>
-            Read and unprotect cache data
-            </summary>
-            <returns>Unprotected cache data</returns>
-        </member>
-        <member name="M:Microsoft.Identity.Client.Extensions.Msal.Storage.WriteData(System.Byte[])">
-            <summary>
-            Protect and write cache data to file. It overrides existing data.
-            </summary>
-            <param name="data">Cache data</param>
-        </member>
-        <member name="M:Microsoft.Identity.Client.Extensions.Msal.Storage.Clear(System.Boolean)">
-            <summary>
-            Delete cache file
-            </summary>
-            <param name="ignoreExceptions">Throw on exceptions</param>
-        </member>
-        <member name="M:Microsoft.Identity.Client.Extensions.Msal.Storage.VerifyPersistence">
-            <summary>
-            Tries to write -> read -> clear a secret from the underlying persistence mechanism
-            </summary>
         </member>
         <member name="T:Microsoft.Identity.Client.Extensions.Msal.CrossPlatLock">
             <summary>
@@ -417,7 +383,7 @@
         </member>
         <member name="M:Microsoft.Identity.Client.Extensions.Msal.Libsecret.secret_password_store_sync(System.IntPtr,System.String,System.String,System.String,System.IntPtr,System.IntPtr@,System.String,System.String,System.String,System.String,System.IntPtr)">
             <summary>
-            saves a secret in the secret stroe using the keyring
+            saves a secret in the secret store using the keyring
             </summary>
             <param name="schema">schema for saving secret</param>
             <param name="collection">collection where to save the secret</param>
@@ -506,6 +472,20 @@
              Is this running on mono
             </summary>
             <returns>A  value indicating if we are running on mono or not</returns>
+        </member>
+        <member name="M:Microsoft.Identity.Client.Extensions.Msal.SharedUtilities.GetCurrentProcessId">
+            <summary>
+            Instantiates the process if not done already and retrieves the id of the process.
+            Caches it for the next call.
+            </summary>
+            <returns>process id</returns>
+        </member>
+        <member name="M:Microsoft.Identity.Client.Extensions.Msal.SharedUtilities.GetCurrentProcessName">
+            <summary>
+            Instantiates the process if not done already and retrieves the name of the process.
+            Caches it for the next call
+            </summary>
+            <returns>process name</returns>
         </member>
         <member name="M:Microsoft.Identity.Client.Extensions.Msal.SharedUtilities.GetUserRootDirectory">
             <summary>
@@ -651,7 +631,7 @@
         </member>
         <member name="M:Microsoft.Identity.Client.Extensions.Msal.StorageCreationPropertiesBuilder.CustomizeLockRetry(System.Int32,System.Int32)">
             <summary>
-            Augments this builder with a custom retry ammount and delay between retries in the cases where a lock is used.
+            Augments this builder with a custom retry amount and delay between retries in the cases where a lock is used.
             </summary>
             <param name="lockRetryDelay">Delay between retries in ms, must be 1 or more</param>
             <param name="lockRetryCount">Number of retries, must be 1 or more</param>
@@ -681,7 +661,7 @@
             over SSH connections. Users are responsible for security.
             </summary>
             <remarks>You can check if the persistence is available by calling msalCacheHelper.VerifyPersistence()
-            For more details see https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/blob/master/docs/keyring_fallback_proposal.md
+            For more details see https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/blob/main/docs/keyring_fallback_proposal.md
             </remarks>
             <returns></returns>
         </member>
@@ -697,7 +677,7 @@
             - Certain virtualized Windows scenarios where DPAPI is not available         
             </summary>
             <remarks>You can check if the persistence is available by calling msalCacheHelper.VerifyPersistence()
-            For more details see https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/blob/master/docs/keyring_fallback_proposal.md
+            For more details see https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/blob/main/docs/keyring_fallback_proposal.md
             </remarks>
         </member>
         <member name="T:Microsoft.Identity.Client.Extensions.Msal.TraceSourceLogger">
@@ -732,6 +712,69 @@
             
             </summary>
             <param name="message"></param>
+        </member>
+        <member name="T:Microsoft.Identity.Client.Extensions.Msal.Storage">
+            <summary>
+            Wrapper over persistence layer. Does not use cross-process locking. To add cross-process locking, wrap calls 
+            with <see cref="T:Microsoft.Identity.Client.Extensions.Msal.CrossPlatLock"/>
+            </summary>
+            <remarks>Consider using the higher level <see cref="T:Microsoft.Identity.Client.Extensions.Msal.MsalCacheHelper"/></remarks>
+        </member>
+        <member name="P:Microsoft.Identity.Client.Extensions.Msal.Storage.StorageCreationProperties">
+            <summary>
+            The storage creation properties used to create this storage
+            </summary>
+        </member>
+        <member name="F:Microsoft.Identity.Client.Extensions.Msal.Storage.s_staticLogger">
+            <summary>
+            A default logger for use if the user doesn't want to provide their own.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Identity.Client.Extensions.Msal.Storage.Create(Microsoft.Identity.Client.Extensions.Msal.StorageCreationProperties,System.Diagnostics.TraceSource)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Identity.Client.Extensions.Msal.Storage"/> class.
+            The actual cache reading and writing is OS specific:
+            <list type="bullet">
+            <item>
+                <term>Windows</term>
+                <description>DPAPI encrypted file on behalf of the user. </description>
+            </item>
+            <item>
+                <term>Mac</term>
+                <description>Cache is stored in KeyChain.  </description>
+            </item>
+            <item>
+                <term>Linux</term>
+                <description>Cache is stored in Gnome KeyRing - https://developer.gnome.org/libsecret/0.18/  </description>
+            </item>
+            </list>
+            </summary>
+            <param name="creationProperties">Properties for creating the cache storage on disk</param>
+            <param name="logger">logger</param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Identity.Client.Extensions.Msal.Storage.ReadData">
+            <summary>
+            Read and unprotect cache data
+            </summary>
+            <returns>Unprotected cache data</returns>
+        </member>
+        <member name="M:Microsoft.Identity.Client.Extensions.Msal.Storage.WriteData(System.Byte[])">
+            <summary>
+            Protect and write cache data to file. It overrides existing data.
+            </summary>
+            <param name="data">Cache data</param>
+        </member>
+        <member name="M:Microsoft.Identity.Client.Extensions.Msal.Storage.Clear(System.Boolean)">
+            <summary>
+            Delete cache file
+            </summary>
+            <param name="ignoreExceptions">Throw on exceptions</param>
+        </member>
+        <member name="M:Microsoft.Identity.Client.Extensions.Msal.Storage.VerifyPersistence">
+            <summary>
+            Tries to write -> read -> clear a secret from the underlying persistence mechanism
+            </summary>
         </member>
         <member name="T:Microsoft.Identity.Extensions.InteropException">
             <summary>

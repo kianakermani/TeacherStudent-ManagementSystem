@@ -332,3 +332,5 @@ C:\Users\HP\TeacherStudent-ManagementSystem\TeacherStudentManagementSystem\Teach
 C:\Users\HP\TeacherStudent-ManagementSystem\TeacherStudentManagementSystem\TeacherStudentManagementSystem\bin\zh-Hans\Microsoft.Data.SqlClient.resources.dll
 C:\Users\HP\TeacherStudent-ManagementSystem\TeacherStudentManagementSystem\TeacherStudentManagementSystem\bin\zh-Hant\Microsoft.Data.SqlClient.resources.dll
 C:\Users\HP\TeacherStudent-ManagementSystem\TeacherStudentManagementSystem\TeacherStudentManagementSystem\obj\Debug\TeacherS.DB34A833.Up2Date
+C:\Users\HP\TeacherStudent-ManagementSystem\TeacherStudentManagementSystem\TeacherStudentManagementSystem\bin\Microsoft.Bcl.Cryptography.dll
+C:\Users\HP\TeacherStudent-ManagementSystem\TeacherStudentManagementSystem\TeacherStudentManagementSystem\bin\Microsoft.Bcl.Cryptography.xml

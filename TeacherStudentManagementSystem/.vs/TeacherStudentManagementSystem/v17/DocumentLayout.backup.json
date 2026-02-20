@@ -11,19 +11,19 @@
       "RelativeMoniker": "D:0:0:{DC38E3B5-4919-472B-BDF4-92F0675313B4}|TeacherStudentManagementSystem\\TeacherStudentManagementSystem.csproj|solutionrelative:teacherstudentmanagementsystem\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DC38E3B5-4919-472B-BDF4-92F0675313B4}|TeacherStudentManagementSystem\\TeacherStudentManagementSystem.csproj|c:\\users\\hp\\teacherstudent-managementsystem\\teacherstudentmanagementsystem\\teacherstudentmanagementsystem\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "AbsoluteMoniker": "D:0:0:{DC38E3B5-4919-472B-BDF4-92F0675313B4}|TeacherStudentManagementSystem\\TeacherStudentManagementSystem.csproj|C:\\Users\\HP\\TeacherStudent-ManagementSystem\\TeacherStudentManagementSystem\\teacherstudentmanagementsystem\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{DC38E3B5-4919-472B-BDF4-92F0675313B4}|TeacherStudentManagementSystem\\TeacherStudentManagementSystem.csproj|solutionrelative:teacherstudentmanagementsystem\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DC38E3B5-4919-472B-BDF4-92F0675313B4}|TeacherStudentManagementSystem\\TeacherStudentManagementSystem.csproj|c:\\users\\hp\\teacherstudent-managementsystem\\teacherstudentmanagementsystem\\teacherstudentmanagementsystem\\areas\\admin\\views\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "AbsoluteMoniker": "D:0:0:{DC38E3B5-4919-472B-BDF4-92F0675313B4}|TeacherStudentManagementSystem\\TeacherStudentManagementSystem.csproj|C:\\Users\\HP\\TeacherStudent-ManagementSystem\\TeacherStudentManagementSystem\\teacherstudentmanagementsystem\\areas\\admin\\views\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{DC38E3B5-4919-472B-BDF4-92F0675313B4}|TeacherStudentManagementSystem\\TeacherStudentManagementSystem.csproj|solutionrelative:teacherstudentmanagementsystem\\areas\\admin\\views\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DC38E3B5-4919-472B-BDF4-92F0675313B4}|TeacherStudentManagementSystem\\TeacherStudentManagementSystem.csproj|c:\\users\\hp\\teacherstudent-managementsystem\\teacherstudentmanagementsystem\\teacherstudentmanagementsystem\\views\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "AbsoluteMoniker": "D:0:0:{DC38E3B5-4919-472B-BDF4-92F0675313B4}|TeacherStudentManagementSystem\\TeacherStudentManagementSystem.csproj|C:\\Users\\HP\\TeacherStudent-ManagementSystem\\TeacherStudentManagementSystem\\teacherstudentmanagementsystem\\views\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{DC38E3B5-4919-472B-BDF4-92F0675313B4}|TeacherStudentManagementSystem\\TeacherStudentManagementSystem.csproj|solutionrelative:teacherstudentmanagementsystem\\views\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DC38E3B5-4919-472B-BDF4-92F0675313B4}|TeacherStudentManagementSystem\\TeacherStudentManagementSystem.csproj|c:\\users\\hp\\teacherstudent-managementsystem\\teacherstudentmanagementsystem\\teacherstudentmanagementsystem\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DC38E3B5-4919-472B-BDF4-92F0675313B4}|TeacherStudentManagementSystem\\TeacherStudentManagementSystem.csproj|C:\\Users\\HP\\TeacherStudent-ManagementSystem\\TeacherStudentManagementSystem\\teacherstudentmanagementsystem\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DC38E3B5-4919-472B-BDF4-92F0675313B4}|TeacherStudentManagementSystem\\TeacherStudentManagementSystem.csproj|solutionrelative:teacherstudentmanagementsystem\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -38,12 +38,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 6,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
